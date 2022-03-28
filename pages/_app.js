@@ -1,10 +1,10 @@
-import React from 'react';
-import { CacheProvider } from '@emotion/react';
-import { ThemeProvider, CssBaseline } from '@mui/material';
+import React from "react";
+import { CacheProvider } from "@emotion/react";
+import { ThemeProvider, CssBaseline } from "@mui/material";
 
-import createEmotionCache from '../utility/createEmotionCache';
-import lightTheme from '../styles/theme/lightTheme';
-import '../styles/globals.css';
+import createEmotionCache from "../utility/createEmotionCache";
+import lightTheme from "../styles/theme/lightTheme";
+import "../styles/globals.css";
 
 const clientSideEmotionCache = createEmotionCache();
 
@@ -20,6 +20,8 @@ const MyApp = (props) => {
     </CacheProvider>
   );
 };
+
+export default MyApp;
 
 //* bendahmanem
 //* mounir.bendahmane@ecole-isitech.fr

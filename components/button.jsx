@@ -1,7 +1,7 @@
-export default function NmBtn({ action, svg = false }) {
+export default function NmBtn({ action, svg = false, label = "Label" }) {
   return (
     <div className="flex border rounded-sm border-stone-300">
-      <button></button>
+      <button>{label}</button>
     </div>
   );
 }
