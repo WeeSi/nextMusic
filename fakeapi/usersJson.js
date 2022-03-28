@@ -9,7 +9,7 @@ const users = [{
     firstname:"Alexis",
     lastname:"Brossette",
     username : "RengeSan",
-    password : "azerty",
+    password : "azertye",
     image : "",
     _id:2
 },{
