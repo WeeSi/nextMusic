@@ -1,3 +1,29 @@
+# React
+### bendahmanem mounir.bendahmane@ecole-isitech.fr
+
+## Notation
+  - [ ] Fullhook
+  - [ ] Documentation personnelle, sur les notions dévcouvertes cette semaine
+  - [ ] Documentation du projet
+  - [ ] Organisation 'feature based' de la structure objet
+  - [ ] Au minimum un petit workflow git présenté brièvement
+  - [ ] Des appels API...
+  - [ ] Des sideEffects...
+  - [ ] Un store
+  - [ ] React Router
+  - [ ] Un hook custom*
+  - [ ] Des composants réutilisable
+  - [ ] Un minimum d'esthétique 
+  - [ ] SignUp / Login*
+
+## Projet
+  - React
+  - Bootstrap 
+  - NextJS 
+  - HeroKu 
+  - GitHub Action
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
