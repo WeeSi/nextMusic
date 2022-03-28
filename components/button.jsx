@@ -1,23 +1,36 @@
+import { useState } from "react";
+
 export default function NmBtn({
   action,
   svg = false,
   label = "Label",
   type = "button",
   variant = undefined,
+  styles = {},
 }) {
   const getClassname = (variant) => {
     switch (variant) {
       case "text":
-        return "hover:text-amber-500";
+        return "hover:text-blue-500 hover:underline";
       default:
-        return "p-2 border rounded-md border-stone-300";
+        return "flex p-2 justify-center bg-blue-500 rounded-md";
     }
   };
 
+  console.log(svg);
   return (
-    <div className={`flex ${getClassname(variant)}`}>
-      <button onClick={action} type={type}>
-        {label}
+    <div
+      className={`flex w-full ${getClassname(variant)}`}
+      style={{ marginTop: styles.marginTop }}
+    >
+      <button className="flex w-full" onClick={action} type={type}>
+        <div
+          className="flex w-full space-x-2 hover:font-semibold"
+          style={{ justifyContent: !variant ? "center" : "start" }}
+        >
+          <span>{label}</span>
+          {svg && svg}
+        </div>
       </button>
     </div>
   );
