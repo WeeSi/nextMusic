@@ -3,7 +3,7 @@ import { MusicNoteIcon } from "@heroicons/react/solid";
 import MnInput from "../input";
 import NmBtn from "../button";
 
-export default function Signup() {
+export default function Signup({ setMode }) {
   const {
     register,
     handleSubmit,
@@ -39,6 +39,10 @@ export default function Signup() {
         />
         <NmBtn label="S'enregistrer" type="submit" />
       </form>
+      <div className="flex pt-8 space-x-2">
+        <h2 className="flex w-fit">Déjà enregister ? </h2>
+        <NmBtn label="Connecte-toi !" variant="text" action={setMode} />
+      </div>
     </div>
   );
 }
