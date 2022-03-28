@@ -2,7 +2,7 @@ import { useState } from "react";
 import Login from "../components/auth/Login";
 import { SvgBtn } from "../components/button";
 
-export default function AuthPage() {
+export default function AuthPage(props) {
   const [mode, setMode] = useState(true);
 
   return (
