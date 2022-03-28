@@ -28,3 +28,5 @@ const users = [{
     _id:4
 },
 ]
+
+export default users;
