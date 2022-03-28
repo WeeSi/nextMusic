@@ -21,6 +21,8 @@ const MyApp = (props) => {
   );
 };
 
+export default MyApp;
+
 //* bendahmanem
 //* mounir.bendahmane@ecole-isitech.fr
 //* groupe 3: Raturat, Spedalotto, Ehui, Brossette
