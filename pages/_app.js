@@ -1,6 +1,6 @@
-import React from 'react';
-import { CacheProvider } from '@emotion/react';
-import { ThemeProvider, CssBaseline } from '@mui/material';
+import React from "react";
+import { CacheProvider } from "@emotion/react";
+import { ThemeProvider, CssBaseline } from "@mui/material";
 
 import createEmotionCache from '../utility/createEmotionCache';
 import lightTheme from '../styles/theme/lightTheme';
