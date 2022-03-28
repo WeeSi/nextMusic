@@ -1,5 +1,3 @@
-const AuthPage = () => {
-  return <div>Hello World !</div>;
-};
-
-export default AuthPage;
+export default function AuthPage() {
+  return <div className={"bg-slate-800"}>Hello World !</div>;
+}
