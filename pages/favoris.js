@@ -1,7 +1,7 @@
-const index = () => {
+const Favoris = () => {
   return (
     <div>Favoris</div>
   )
 }
 
-export default index
+export default Favoris;
