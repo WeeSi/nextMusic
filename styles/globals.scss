@@ -281,12 +281,6 @@
 .bar:nth-child(3)  { left: 9px; animation-duration: 407ms; }
 .bar:nth-child(4)  { left: 13px; animation-duration: 458ms; }
 
-.MuiAppBar-root{
-  background-color: white !important;
-  box-shadow: unset !important;
-  color: gray !important;
-}
-
 .song-list-table{
   transition: all ease 0.3s;
   .play-song-icon{
