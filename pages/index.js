@@ -6,6 +6,7 @@ import HomePlayer from './home';
 // import styles from '../styles/Home.module.css'
 
 function Index(props) {
+
   if(!props.token){
     return <AuthPage {...props} />;
   }
