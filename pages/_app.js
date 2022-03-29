@@ -6,7 +6,7 @@ import createEmotionCache from '../utility/createEmotionCache';
 import lightTheme from '../styles/theme/lightTheme';
 import darkTheme from '../styles/theme/darkTheme';
 import '../styles/globals.css';
-import MiniDrawer from '../utility/drawer';
+import MiniDrawer from '../components/drawer';
 import Router from 'next/router'
 import AuthPage from "./auth";
 
