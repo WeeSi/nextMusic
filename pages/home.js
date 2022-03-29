@@ -1,5 +1,3 @@
-import MiniDrawer from '../utility/drawer';
-import { useRouter } from 'next/router'
 
 function HomePlayer(props) {
   return (
