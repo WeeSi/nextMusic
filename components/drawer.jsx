@@ -12,7 +12,7 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import ListItemButton from '@mui/material/ListItemButton';
+import AppBar from '@mui/material/AppBar';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import ListItem from '@mui/material/ListItem';
@@ -65,6 +65,16 @@ export default function MiniDrawer(props) {
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
+      <AppBar
+        position="fixed"
+        sx={{ width: `calc(100% - ${drawerWidth}px)`, ml: `${drawerWidth}px` }}
+      >
+        <Toolbar>
+          <Typography variant="h6" noWrap component="div">
+            Permanent drawer
+          </Typography>
+        </Toolbar>
+      </AppBar>
       <Drawer variant="permanent" anchor="left"
         sx={{
           width: drawerWidth,
