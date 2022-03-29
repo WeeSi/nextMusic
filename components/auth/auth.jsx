@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import Login from "../components/auth/Login";
-import Signup from "../components/auth/Signup";
+import Login from "./Login";
+import Signup from "./Signup";
 
 export default function AuthPage(props) {
   const [mode, setMode] = useState(true);

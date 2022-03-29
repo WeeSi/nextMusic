@@ -3,15 +3,19 @@
 import MiniDrawer from '../components/drawer';
 import AuthPage from './auth';
 import HomePlayer from './home';
+import { Context } from '../context';
+import { useContext, useEffect } from 'react';
+import { useRouter } from 'next/router'
 // import styles from '../styles/Home.module.css'
 
 function Index(props) {
-
-  if(!props.token){
+  const {state,dispatch} = useContext(Context);
+  
+  if(!state.logged){
     return <AuthPage {...props} />;
   }
 
-  return <HomePlayer {...props} />
+  return <></>
 }
 
 export default Index;

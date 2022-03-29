@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { CacheProvider } from "@emotion/react";
 import { ThemeProvider, CssBaseline } from "@mui/material";
 
@@ -9,6 +9,7 @@ import '../styles/globals.css';
 import MiniDrawer from '../components/drawer';
 import Router from 'next/router'
 import AuthPage from "./auth";
+import { Context, Provider } from "../context";
 
 const clientSideEmotionCache = createEmotionCache();
 
@@ -16,28 +17,17 @@ const clientSideEmotionCache = createEmotionCache();
 const MyApp = (props) => {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
 
-  useEffect(() => {
-    if(!props.token){
-      Router.push('auth')
-    }
-  }, []);
-
-  if(!props.token){
-    return (
-      <CacheProvider value={emotionCache}>
-        <ThemeProvider theme={lightTheme}>
-          <CssBaseline />
-          <AuthPage />
-        </ThemeProvider>
-      </CacheProvider>
-    );
-  }
-
    return (
     <CacheProvider value={emotionCache}>
       <ThemeProvider theme={lightTheme}>
         <CssBaseline />
-       <MiniDrawer><div className=" pt-4 pl-20 ml-6"><Component {...pageProps} /></div></MiniDrawer>  
+        <Provider>
+          <MiniDrawer>
+            <div className=" pt-4 pl-20 ml-6">
+              <Component {...pageProps} />
+            </div>
+          </MiniDrawer>
+        </Provider>
       </ThemeProvider>
     </CacheProvider>
   );

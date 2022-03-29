@@ -16,7 +16,7 @@ export default function NmInput({
 
   return (
     <div className="flex flex-col w-full space-y-2">
-      <label className="text-stone-300 text-lg font-medium tracking-wide">
+      <label className="text-stone-300 text-sm font-medium tracking-wide">
         <span style={{ color: error && "#dc2626" }}>
           {label}
           {required && " *"}
@@ -27,7 +27,7 @@ export default function NmInput({
         autoComplete={autocomplete}
         id={label}
         placeholder={placeholder}
-        className={`p-2 rounded-md focus:outline-none focus:border-2 focus:border-stone-300 focus:shadow-[inset_0_0_.5rem_rgb(37,99,235)]`}
+        className={`p-2 rounded-md focus:outline-none`}
         style={{
           color: error && "#b91c1c",
           boxShadow: error && "inset 0 0 .5rem #b91c1c",

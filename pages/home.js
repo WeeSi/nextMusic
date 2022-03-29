@@ -1,7 +1,9 @@
+import MiniDrawer from '../utility/drawer';
+import { useRouter } from 'next/router'
 
-function Home() {
+function HomePlayer(props) {
   return (
-    <div> Home </div>
+    <div>test</div>
   );
 }
-export default Home;
+export default HomePlayer;
