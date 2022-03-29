@@ -59,31 +59,31 @@ const Login = ({ setMode }) => {
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         <NmInput
-          label="Identifiant"
+          label="Username"
           name="identifiant"
           register={register}
           required={"Votre identifiant est obligatoire"}
           error={errors.identifiant}
-          placeholder="Entrez votre identifiant"
+          placeholder="Enter your username"
         />
         <NmInput
           type="password"
-          label="Mot de passe"
+          label="Password"
           name="password"
           register={register}
           required={"Le mot de passe est obligatoire"}
           error={errors.password}
-          placeholder="Entrez votre mot de passe"
+          placeholder="Enter your password"
         />
         <NmBtn
-          label={loading ? <CircularProgress /> : "Se connecter"}
+          label={loading ? <CircularProgress /> : "Login now"}
           type="submit"
           styles={{ marginTop: "1.75rem" }}
         />
       </form>
 
       <div className="flex space-x-2 pt-8 w-full text-white">
-        <span className="flex min-w-fit">Pas encore inscrit ? </span>
+        <span className="text-sm flex min-w-fit">Pas encore inscrit ? </span>
         <NmBtn
           label="S'inscrire !"
           variant="text"
