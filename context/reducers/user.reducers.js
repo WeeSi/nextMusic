@@ -5,6 +5,12 @@ export function user(state, action) {
       case "CHANGE_DARK":
         localStorage.setItem('darkMode', action.payload);
         return { ...state, darkMode: action.payload };
+      
+      case "CHANGE_VOLUME":
+        return { ...state, volume: action.payload};
+      
+      case "CHANGE_SONG":
+        return { ...state, inPlay: action.payload};
       default:
         return state;
     }

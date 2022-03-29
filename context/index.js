@@ -1,4 +1,5 @@
 import { useState, useEffect, useReducer, createContext } from "react";
+import { Songs } from "../components/player/songs";
 import { user } from "./reducers/user.reducers";
 
 // initial state
@@ -6,6 +7,10 @@ const initialState = {
   user: {},
   logged:false,
   darkMode: false,
+  inPlay: Songs[0],
+  volume: 0.9,
+  index: 0,
+  isPlaying: false,
 };
 
 // create context

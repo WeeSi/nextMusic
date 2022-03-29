@@ -21,8 +21,7 @@ import CardSearch from './cardSearch';
 import AppBar from '@mui/material/AppBar';
 import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
-
-
+import BottomPlayer from './player/bottomPlayer';
 
 const drawerWidth = 180;
 
@@ -115,7 +114,7 @@ export default function MiniDrawer(props) {
     dispatch({type:"CHANGE_DARK", payload:localStorage.darkMode=="true"?true:false})
     if(localStorage.user){
       dispatch({type:"LOGGED_IN_USER", payload : localStorage.user});
-      router.push('home')
+
     }else{
       if(!state.logged){
          router.push('/');

@@ -3,7 +3,7 @@ import { CacheProvider } from "@emotion/react";
 import { ThemeProvider, CssBaseline } from "@mui/material";
 
 import createEmotionCache from '../utility/createEmotionCache';
-import '../styles/globals.css';
+import '../styles/globals.scss';
 import MiniDrawer from '../components/drawer';
 import { Context, Provider } from "../context";
 
