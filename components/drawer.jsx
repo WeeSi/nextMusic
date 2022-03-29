@@ -14,6 +14,7 @@ import ListItem from '@mui/material/ListItem';
 import { Context } from '../context';
 import { useRouter } from 'next/router';
 import { CollectionIcon, HomeIcon, HeartIcon, CogIcon } from '@heroicons/react/solid';
+import BottomPlayer from './player/bottomPlayer';
 
 const drawerWidth = 180;
 
@@ -81,7 +82,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
     }),
   }),
 );
-const navigations =  [{name:'Home',icon:HomeIcon}, {name:'Blibliotheque',icon:CollectionIcon}, {name:'Favoris',icon:HeartIcon},{name:'Settings',icon:CogIcon} ];
+const navigations =  [{name:'Home',icon:HomeIcon}, {name:'Bibliotheque',icon:CollectionIcon}, {name:'Favoris',icon:HeartIcon},{name:'Settings',icon:CogIcon} ];
 export default function MiniDrawer(props) {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -91,7 +92,7 @@ export default function MiniDrawer(props) {
   React.useEffect(() => {
     if(localStorage.user){
       dispatch({type:"LOGGED_IN_USER", payload : localStorage.user});
-      router.push('home')
+
     }else{
       if(!state.logged){
          router.push('/');
@@ -143,8 +144,8 @@ export default function MiniDrawer(props) {
      }
      
       <Box component="main" sx={{ flexGrow: 1, p: state.logged ? 3 : 0 }}>
-        <div className='ml-28 mt-16'>{props.children}</div>
-          
+        <div className={state.logged ? 'ml-28 mt-16' : ''}>{props.children}</div>
+        <BottomPlayer />
       </Box>
     </Box>
   );
