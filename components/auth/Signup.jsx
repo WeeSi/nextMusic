@@ -1,9 +1,9 @@
 import { useForm } from "react-hook-form";
 import { MusicNoteIcon } from "@heroicons/react/solid";
-import MnInput from "../input";
+import NmInput from "../input";
 import NmBtn from "../button";
 
-export default function Signup() {
+export default function Signup({ setMode }) {
   const {
     register,
     handleSubmit,
@@ -20,7 +20,7 @@ export default function Signup() {
         onSubmit={handleSubmit(onSubmit)}
         className="flex flex-col items-center w-full p-4 space-y-4"
       >
-        <MnInput
+        <NmInput
           label="Nom d'utilisateur"
           name="username"
           placeholder="Entrez votre nom d'utilisateur"
@@ -28,7 +28,7 @@ export default function Signup() {
           required
           error={errors.email}
         />
-        <MnInput
+        <NmInput
           label="Mot de passe"
           name="password"
           placeholder="Entrez votre mot de passe"
@@ -39,6 +39,10 @@ export default function Signup() {
         />
         <NmBtn label="S'enregistrer" type="submit" />
       </form>
+      <div className="flex pt-8 space-x-2">
+        <h2 className="flex w-fit">Déjà enregister ? </h2>
+        <NmBtn label="Connecte-toi !" variant="text" action={setMode} />
+      </div>
     </div>
   );
 }

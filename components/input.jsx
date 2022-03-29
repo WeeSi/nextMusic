@@ -1,4 +1,6 @@
-export default function MnInput({
+import { useEffect } from "react";
+
+export default function NmInput({
   type = "text",
   w = "full",
   label = "label",
@@ -10,25 +12,38 @@ export default function MnInput({
   placeholder,
   autocomplete = "email",
 }) {
+  useEffect(() => {}, [error]);
+
   return (
-    <div className="relative w-full">
-      <label className="text-stone-300">
-        {label}
-        {required && "*"}
+    <div className="flex flex-col w-full space-y-2">
+      <label className="text-stone-300 text-sm font-medium tracking-wide">
+        <span style={{ color: error && "#dc2626" }}>
+          {label}
+          {required && " *"}
+        </span>
       </label>
       <input
         type={type}
         autoComplete={autocomplete}
         id={label}
         placeholder={placeholder}
-        className={`flex grow w-${w} outline-hidden focus:outline-none p-2`}
+        className={`p-2 rounded-md focus:outline-none`}
+        style={{
+          color: error && "#b91c1c",
+          boxShadow: error && "inset 0 0 .5rem #b91c1c",
+        }}
         {...register(name, {
           required: required,
           pattern: pattern,
         })}
       />
+      {/* {
+        <span style={{ color: !error ? "#fff" : "#dc2626" }}>
+          {!error ? placeholder : error.message}
+        </span>
+      } */}
       {error && (
-        <span style={{ color: "#ff4d6f" }} className="error text-sm">
+        <span style={{ color: "#b91c1c" }} className="">
           {error.message}
         </span>
       )}
