@@ -15,7 +15,7 @@ function Index(props) {
     return <AuthPage {...props} />;
   }
 
-  return <></>
+  return <>loading</>
 }
 
 export default Index;

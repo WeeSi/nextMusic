@@ -13,12 +13,18 @@ export default function Signup({ setMode }) {
   const onSubmit = (data) => console.log(data);
 
   return (
-    <div className="flex flex-col items-center justify-center w-full space-y-8 py-4">
-      <MusicNoteIcon className="h-24 w-16 text-amber-500" />
-      <h2 className="text-white">Bonjour</h2>
+    <div
+    className="px-6 py-8 rounded-md shadow-xl"
+    style={{ minWidth: "400px", background: "#2a2a2a" }}
+  >
+     <div className="text-white text-center text-xl font-md mt-2 mb-8 tracking-wide">
+        <span className="text-lg opacity-50">Welcome</span>
+        <h1>Sign up</h1>
+      </div>
+
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-col items-center w-full p-4 space-y-4"
+        className="space-y-4"
       >
         <NmInput
           label="Nom d'utilisateur"
@@ -28,6 +34,7 @@ export default function Signup({ setMode }) {
           required
           error={errors.email}
         />
+
         <NmInput
           label="Mot de passe"
           name="password"
@@ -37,10 +44,11 @@ export default function Signup({ setMode }) {
           required
           type="password"
         />
-        <NmBtn label="S'enregistrer" type="submit" />
+
+        <NmBtn label="S'enregistrer" type="submit"  styles={{ marginTop: "1.75rem" }} />
       </form>
-      <div className="flex pt-8 space-x-2">
-        <h2 className="flex w-fit">Déjà enregister ? </h2>
+      <div className="flex space-x-2 pt-8 w-full text-white">
+        <span className="text-sm flex min-w-fit">Déjà enregister ? </span>
         <NmBtn label="Connecte-toi !" variant="text" action={setMode} />
       </div>
     </div>

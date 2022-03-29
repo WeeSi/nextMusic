@@ -53,10 +53,6 @@ const Login = ({ setMode }) => {
         <h1>Log into your account</h1>
       </div>
 
-      {/* <div className="flex align-center justify-center text-blue-500">
-        <MusicNoteIcon className="w-24 h-24 mb-8 mt-8" />
-      </div> */}
-
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         <NmInput
           label="Username"
