@@ -82,7 +82,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
     }),
   }),
 );
-const navigations =  [{name:'Home',icon:HomeIcon}, {name:'Bibliotheque',icon:CollectionIcon}, {name:'Favoris',icon:HeartIcon},{name:'Settings',icon:CogIcon} ];
+const navigations =  [{name:'Home',icon:HomeIcon}, {name:'Blibliotheque',icon:CollectionIcon}, {name:'Favoris',icon:HeartIcon},{name:'Settings',icon:CogIcon} ];
 export default function MiniDrawer(props) {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
