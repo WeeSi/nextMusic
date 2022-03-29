@@ -2,19 +2,19 @@
 ### bendahmanem mounir.bendahmane@ecole-isitech.fr
 
 ## Notation
-  - [ x ] Fullhook
+  - [x] Fullhook
   - [ ] Documentation personnelle, sur les notions dévcouvertes cette semaine
   - [ ] Documentation du projet
-  - [ x ] Organisation 'feature based' de la structure objet
-  - [ x ] Au minimum un petit workflow git présenté brièvement
-  - [ x ] Des appels API...
-  - [ x ] Des sideEffects...
-  - [ x ] Un store
-  - [ x ] React Router
-  - [ x ] Un hook custom*
-  - [ x ] Des composants réutilisable
-  - [ x ] Un minimum d'esthétique 
-  - [ x ] SignUp / Login*
+  - [x] Organisation 'feature based' de la structure objet
+  - [x] Au minimum un petit workflow git présenté brièvement
+  - [x] Des appels API...
+  - [x] Des sideEffects...
+  - [x] Un store
+  - [x] React Router
+  - [x] Un hook custom*
+  - [x] Des composants réutilisable
+  - [x] Un minimum d'esthétique 
+  - [x] SignUp / Login*
 
 ## Projet
   - React
