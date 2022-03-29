@@ -1,9 +1,15 @@
 import { useForm } from "react-hook-form";
-import { MusicNoteIcon } from "@heroicons/react/solid";
-import NmInput from "../input";
+import { ArrowRightIcon } from "@heroicons/react/solid";
+import users from "../../fakeapi/usersJson";
 import NmBtn from "../button";
+import NmInput from "../input";
+import CircularProgress from "@mui/material/CircularProgress";
+import { useContext, useState } from "react";
+import Router from "next/router";
+import { Context } from "../../context";
 
 export default function Signup({ setMode }) {
+  const [loading, setLoading] = useState(false);
   const {
     register,
     handleSubmit,
@@ -13,35 +19,52 @@ export default function Signup({ setMode }) {
   const onSubmit = (data) => console.log(data);
 
   return (
-    <div className="flex flex-col items-center justify-center w-full space-y-8 py-4">
-      <MusicNoteIcon className="h-24 w-16 text-amber-500" />
-      <h2 className="text-white">Bonjour</h2>
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-col items-center w-full p-4 space-y-4"
-      >
+    <div
+      className="px-6 py-8 rounded-md shadow-xl"
+      style={{ minWidth: "400px", background: "#2a2a2a" }}
+    >
+      <div className="text-white text-center text-xl font-md mt-2 mb-8 tracking-wide">
+        <span className="text-lg opacity-50">Welcome back</span>
+        <h1>Log into your account</h1>
+      </div>
+
+      {/* <div className="flex align-center justify-center text-blue-500">
+        <MusicNoteIcon className="w-24 h-24 mb-8 mt-8" />
+      </div> */}
+
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         <NmInput
-          label="Nom d'utilisateur"
-          name="username"
-          placeholder="Entrez votre nom d'utilisateur"
+          label="Username"
+          name="identifiant"
           register={register}
-          required
-          error={errors.email}
+          required={"Username is required"}
+          error={errors.identifiant}
+          placeholder="Enter your username"
         />
         <NmInput
-          label="Mot de passe"
-          name="password"
-          placeholder="Entrez votre mot de passe"
-          register={register}
-          error={errors.passowrd}
-          required
           type="password"
+          label="Password"
+          name="password"
+          register={register}
+          required={"Password is required"}
+          error={errors.password}
+          placeholder="Enter your password"
         />
-        <NmBtn label="S'enregistrer" type="submit" />
+        <NmBtn
+          label={loading ? <CircularProgress /> : "Login now"}
+          type="submit"
+          styles={{ marginTop: "1.75rem" }}
+        />
       </form>
-      <div className="flex pt-8 space-x-2">
-        <h2 className="flex w-fit">Déjà enregister ? </h2>
-        <NmBtn label="Connecte-toi !" variant="text" action={setMode} />
+
+      <div className="flex space-x-2 pt-8 w-full text-white">
+        <span className="text-sm flex min-w-fit">Have an account ? </span>
+        <NmBtn
+          label="Sign In"
+          variant="text"
+          action={setMode}
+          svg={<ArrowRightIcon className="h-4 w-4" />}
+        />
       </div>
     </div>
   );
