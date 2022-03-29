@@ -7,8 +7,6 @@ import lightTheme from '../styles/theme/lightTheme';
 import darkTheme from '../styles/theme/darkTheme';
 import '../styles/globals.css';
 import MiniDrawer from '../components/drawer';
-import Router from 'next/router'
-import AuthPage from "./auth";
 import { Context, Provider } from "../context";
 
 const clientSideEmotionCache = createEmotionCache();
@@ -23,9 +21,7 @@ const MyApp = (props) => {
         <CssBaseline />
         <Provider>
           <MiniDrawer>
-            <div className=" pt-4 pl-20 ml-6">
               <Component {...pageProps} />
-            </div>
           </MiniDrawer>
         </Provider>
       </ThemeProvider>
