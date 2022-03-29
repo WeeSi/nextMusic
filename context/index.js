@@ -4,7 +4,8 @@ import { user } from "./reducers/user.reducers";
 // initial state
 const initialState = {
   user: {},
-  logged:false
+  logged:false,
+  darkMode: false,
 };
 
 // create context
