@@ -17,8 +17,8 @@ const MyApp = (props) => {
     <CacheProvider value={emotionCache}>
       <ThemeProvider theme={lightTheme}>
         <CssBaseline />
-        {props.token &&  <MiniDrawer><div className=" pt-4 pl-20 ml-6"><Component {...pageProps} /></div></MiniDrawer>  }
-        {!props.token && <Component {...pageProps} />}
+        {!props.token &&  <MiniDrawer><div className=" pt-4 pl-20 ml-6"><Component {...pageProps} /></div></MiniDrawer>  }
+        {props.token && <Component {...pageProps} />}
      
       </ThemeProvider>
     </CacheProvider>
