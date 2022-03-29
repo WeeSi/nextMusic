@@ -17,7 +17,6 @@ export default function NmBtn({
     }
   };
 
-  console.log(svg);
   return (
     <div
       className={`flex w-full ${getClassname(variant)}`}

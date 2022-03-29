@@ -16,7 +16,7 @@ export default function NmInput({
 
   return (
     <div className="flex flex-col w-full space-y-2">
-      <label className="text-stone-300 text-lg font-medium tracking-wide">
+      <label className="text-stone-300 text-sm font-medium tracking-wide">
         <span style={{ color: error && "#dc2626" }}>
           {label}
           {required && " *"}
