@@ -1,0 +1,302 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+:root{
+  --bar-bg: #18191a;
+  --seek-before-width: 0;
+  --seek-before-color: #ffc2a1;
+  --knobby: transparent;
+  --selectedKnobby: #26c9c3;
+  --primary:#26c9c3;
+}
+    
+.progressBar {
+    appearance: none;
+    background: var(--bar-bg);;
+    border-radius: 10px;
+    position: relative;
+    width: 100%;
+    height: 4px;
+    outline: none;
+  }
+
+  .progressBar:hover{
+      --knobby : #ffffff;
+  }
+  
+  /* progress bar - safari */
+  .progressBar::-webkit-slider-runnable-track {
+    background: var(--bar-bg);;
+    border-radius: 10px;
+    position: relative;
+    width: 100%;
+    height: 4px;
+    outline: none;
+  }
+  
+  /* progress bar - firefox */
+  .progressBar::-moz-range-track {
+    background: var(--bar-bg);;
+    border-radius: 10px;
+    position: relative;
+    width: 100%;
+    height: 4px;
+    outline: none;
+  }
+  
+  .progressBar::-moz-focus-outer {
+    border: 0;
+  }
+  
+  /* progress bar - chrome and safari */
+  .progressBar::before {
+    content: '';
+    height: 4px;
+    width: var(--seek-before-width);
+    background-color: var(--primary);
+    border-radius: 90px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    cursor: pointer;
+  }
+  
+  /* progress bar - firefox */
+  .progressBar::-moz-range-progress {
+    background-color: var(--seek-before-color);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    height: 4px;
+  }
+  
+  /* knobby - chrome and safari */
+  .progressBar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--knobby);
+    cursor: pointer;
+    position: relative;
+    margin: -4px 0 0 0;
+    z-index: 3;
+    box-sizing: border-box;
+  }
+  
+  /* knobby while dragging - chrome and safari */
+  .progressBar:active::-webkit-slider-thumb, .progressBar:hover::-webkit-slider-thumb {
+    background: #ffffff;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  }
+  
+  /* knobby - firefox */
+  .progressBar::-moz-range-thumb {
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    border: transparent;
+    background-color: var(--knobby);
+    cursor: pointer;
+    position: relative;
+    z-index: 3;
+    box-sizing: border-box;
+  }
+  
+  /* knobby while dragging - firefox */
+  .progressBar:active::-moz-range-thumb {
+    transform: scale(1.2);
+    background: var(--selectedKnobby);
+  }
+
+  .volumeProgress{
+    --bar-bg: #18191a;
+    --seek-before-width: 0;
+    --seek-before-color: #ffc2a1;
+    --knobby: transparent;
+    --selectedKnobby: #26c9c3;
+  
+    appearance: none;
+    background: var(--bar-bg);;
+    border-radius: 10px;
+    position: relative;
+    width: 100%;
+    height: 4px;
+    outline: none;
+  }
+
+  .volumeProgress:hover{
+    --knobby : #ffffff;
+}
+
+  
+  /* progress bar - safari */
+  .volumeProgress::-webkit-slider-runnable-track {
+    background: var(--bar-bg);;
+    border-radius: 10px;
+    position: relative;
+    width: 100%;
+    height: 4px;
+    outline: none;
+  }
+  
+  /* progress bar - firefox */
+  .volumeProgress::-moz-range-track {
+    background: var(--bar-bg);;
+    border-radius: 10px;
+    position: relative;
+    width: 100%;
+    height: 4px;
+    outline: none;
+  }
+  
+  .volumeProgress::-moz-focus-outer {
+    border: 0;
+  }
+  
+  /* progress bar - chrome and safari */
+  .volumeProgress::before {
+    content: '';
+    height: 4px;
+    width: var(--seek-before-width);
+    background-color: var(--primary);
+    border-radius: 90px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    cursor: pointer;
+  }
+  
+  /* progress bar - firefox */
+  .volumeProgress::-moz-range-progress {
+    background-color: var(--seek-before-color);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    height: 4px;
+  }
+  
+  /* knobby - chrome and safari */
+  .volumeProgress::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--knobby);
+    cursor: pointer;
+    position: relative;
+    margin: -4px 0 0 0;
+    z-index: 3;
+    box-sizing: border-box;
+  }
+  
+  /* knobby while dragging - chrome and safari */
+  .volumeProgress:active::-webkit-slider-thumb {
+    background: #ffffff;
+  }
+  
+  /* knobby - firefox */
+  .volumeProgress::-moz-range-thumb {
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    border: transparent;
+    background-color: var(--knobby);
+    cursor: pointer;
+    position: relative;
+    z-index: 3;
+    box-sizing: border-box;
+  }
+  
+  /* knobby while dragging - firefox */
+  .volumeProgress:active::-moz-range-thumb {
+    transform: scale(1.2);
+    background: var(--selectedKnobby);
+  }
+
+  .podcast-player{
+    background-color: var(--theme-podcast-player);
+  }
+
+  .podcast-player-playlist{
+    background-color: var(--theme-podcast-player-playlist);
+  }
+
+  .podcast-in-playlist:hover{
+    background: var(--theme-secondary-background);
+
+    .dropdown{
+      opacity: 1;
+    }
+  }
+
+  .marquee{
+    max-width: 300px;
+    white-space: nowrap;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+
+  .marquee p {
+    display: inline-block;
+    padding-left: 10px;
+    animation: marquee 15s linear infinite;
+}
+
+@keyframes marquee {
+    0%   { transform: translate(0, 0); }
+    100% { transform: translate(-100%, 0); }
+}
+
+#bars {
+  height: 30px;
+  top: 0;
+  right: 26px;
+}
+
+.bar {
+ background: var(--primary);
+  bottom: 1px;
+  height: 3px;
+  position: absolute;
+  width: 2px;      
+  animation: sound 0ms -800ms linear infinite alternate;
+}
+
+@keyframes sound {
+  0% {
+     opacity: .35;
+      height: 3px; 
+  }
+  100% {
+      opacity: 1;       
+      height: 17px;        
+  }
+}
+
+.bar:nth-child(1)  { left: 1px; animation-duration: 474ms; }
+.bar:nth-child(2)  { left: 5px; animation-duration: 433ms; }
+.bar:nth-child(3)  { left: 9px; animation-duration: 407ms; }
+.bar:nth-child(4)  { left: 13px; animation-duration: 458ms; }
+
+.song-list-table{
+  transition: all ease 0.3s;
+  .play-song-icon{
+    display: none;
+  }
+  .play-song-incr-number{
+    display: block;
+  }
+}
+
+.song-list-table:hover{
+  background-color: #26c9c3;
+  .play-song-icon{
+    display: block;
+  }
+  .play-song-incr-number{
+    display: none;
+  }
+}
