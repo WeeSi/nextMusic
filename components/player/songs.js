@@ -8,7 +8,7 @@
 export const Songs = [
   {
     id: 1,
-    src: '/thespark.mp3',
+    src: '/assets/thespark.mp3',
     title: "The Spark",
     artist: "Afrojack",
     image:
@@ -18,7 +18,7 @@ export const Songs = [
   },
   {
     id: 2,
-    src: '/machine-gun-kelly-born-with-horns-official-lyric-video.mp3',
+    src: '/assets/machine-gun-kelly-born-with-horns-official-lyric-video.mp3',
     title: "Born With Horns?",
     artist: "MGK",
     image:
