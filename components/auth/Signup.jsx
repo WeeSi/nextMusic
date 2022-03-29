@@ -1,9 +1,15 @@
 import { useForm } from "react-hook-form";
-import { MusicNoteIcon } from "@heroicons/react/solid";
-import NmInput from "../input";
+import { ArrowRightIcon } from "@heroicons/react/solid";
+import users from "../../fakeapi/usersJson";
 import NmBtn from "../button";
+import NmInput from "../input";
+import CircularProgress from "@mui/material/CircularProgress";
+import { useContext, useState } from "react";
+import Router from "next/router";
+import { Context } from "../../context";
 
 export default function Signup({ setMode }) {
+  const [loading, setLoading] = useState(false);
   const {
     register,
     handleSubmit,
@@ -27,22 +33,27 @@ export default function Signup({ setMode }) {
         className="space-y-4"
       >
         <NmInput
-          label="Nom d'utilisateur"
-          name="username"
-          placeholder="Entrez votre nom d'utilisateur"
+          label="Username"
+          name="identifiant"
           register={register}
-          required
-          error={errors.email}
+          required={"Username is required"}
+          error={errors.identifiant}
+          placeholder="Enter your username"
         />
 
         <NmInput
-          label="Mot de passe"
-          name="password"
-          placeholder="Entrez votre mot de passe"
-          register={register}
-          error={errors.passowrd}
-          required
           type="password"
+          label="Password"
+          name="password"
+          register={register}
+          required={"Password is required"}
+          error={errors.password}
+          placeholder="Enter your password"
+        />
+        <NmBtn
+          label={loading ? <CircularProgress /> : "Login now"}
+          type="submit"
+          styles={{ marginTop: "1.75rem" }}
         />
 
         <NmBtn label="S'enregistrer" type="submit"  styles={{ marginTop: "1.75rem" }} />

@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 export default function NmBtn({
   action,
   svg = false,
@@ -27,8 +25,8 @@ export default function NmBtn({
           className="flex w-full space-x-2 hover:font-semibold"
           style={{ justifyContent: !variant ? "center" : "start" }}
         >
-          <span>{label}</span>
-          {svg && svg}
+          <span className="text-sm">{label}</span>
+          {svg && <div className="flex items-center pb-1 w-6 h-6">{svg}</div>}
         </div>
       </button>
     </div>
