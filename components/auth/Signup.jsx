@@ -20,19 +20,18 @@ export default function Signup({ setMode }) {
 
   return (
     <div
-      className="px-6 py-8 rounded-md shadow-xl"
-      style={{ minWidth: "400px", background: "#2a2a2a" }}
-    >
-      <div className="text-white text-center text-xl font-md mt-2 mb-8 tracking-wide">
-        <span className="text-lg opacity-50">Welcome back</span>
-        <h1>Log into your account</h1>
+    className="px-6 py-8 rounded-md shadow-xl"
+    style={{ minWidth: "400px", background: "#2a2a2a" }}
+  >
+     <div className="text-white text-center text-xl font-md mt-2 mb-8 tracking-wide">
+        <span className="text-lg opacity-50">Welcome</span>
+        <h1>Sign up</h1>
       </div>
 
-      {/* <div className="flex align-center justify-center text-blue-500">
-        <MusicNoteIcon className="w-24 h-24 mb-8 mt-8" />
-      </div> */}
-
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="space-y-4"
+      >
         <NmInput
           label="Username"
           name="identifiant"
@@ -41,6 +40,7 @@ export default function Signup({ setMode }) {
           error={errors.identifiant}
           placeholder="Enter your username"
         />
+
         <NmInput
           type="password"
           label="Password"
@@ -55,16 +55,12 @@ export default function Signup({ setMode }) {
           type="submit"
           styles={{ marginTop: "1.75rem" }}
         />
-      </form>
 
+        <NmBtn label="S'enregistrer" type="submit"  styles={{ marginTop: "1.75rem" }} />
+      </form>
       <div className="flex space-x-2 pt-8 w-full text-white">
-        <span className="text-sm flex min-w-fit">Have an account ? </span>
-        <NmBtn
-          label="Sign In"
-          variant="text"
-          action={setMode}
-          svg={<ArrowRightIcon className="h-4 w-4" />}
-        />
+        <span className="text-sm flex min-w-fit">Déjà enregister ? </span>
+        <NmBtn label="Connecte-toi !" variant="text" action={setMode} />
       </div>
     </div>
   );

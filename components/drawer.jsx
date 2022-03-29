@@ -7,20 +7,16 @@ import Toolbar from '@mui/material/Toolbar';
 import List from '@mui/material/List';
 import CssBaseline from '@mui/material/CssBaseline';
 import Typography from '@mui/material/Typography';
-import Divider from '@mui/material/Divider';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import ListItemButton from '@mui/material/ListItemButton';
+import Link from 'next/link'
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
+import ListItem from '@mui/material/ListItem';
 import { Context } from '../context';
 import { useRouter } from 'next/router';
+import { CollectionIcon, HomeIcon, HeartIcon, CogIcon } from '@heroicons/react/solid';
+import BottomPlayer from './player/bottomPlayer';
 
-const drawerWidth = 240;
+const drawerWidth = 180;
 
 const openedMixin = (theme) => ({
   width: drawerWidth,
@@ -86,7 +82,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
     }),
   }),
 );
-
+const navigations =  [{name:'Home',icon:HomeIcon}, {name:'Bibliotheque',icon:CollectionIcon}, {name:'Favoris',icon:HeartIcon},{name:'Settings',icon:CogIcon} ];
 export default function MiniDrawer(props) {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -96,7 +92,7 @@ export default function MiniDrawer(props) {
   React.useEffect(() => {
     if(localStorage.user){
       dispatch({type:"LOGGED_IN_USER", payload : localStorage.user});
-      router.push('home')
+
     }else{
       if(!state.logged){
          router.push('/');
@@ -105,48 +101,51 @@ export default function MiniDrawer(props) {
   
   }, [])
 
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
-
-  const handleDrawerClose = () => {
-    setOpen(false);
-  };
-
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
       {state.logged && 
-       <Drawer variant="permanent" open={open}>
-  
+      <>
+      <AppBar
+      sx={{ width: `calc(100% - ${drawerWidth}px)`, ml: `${drawerWidth}px` }}
+    >
+      <Toolbar>
+        <Typography variant="h6" noWrap component="div">
+          Permanent drawer
+        </Typography>
+      </Toolbar>
+    </AppBar>
+       <Drawer variant="permanent" anchor="left"  sx={{
+          width: drawerWidth,
+          flexShrink: 0,
+          [`& .MuiDrawer-paper`]: { width: drawerWidth, boxSizing: 'border-box' },
+        }}>
+        <Toolbar>
+          <Typography variant="h6" noWrap component="div">
+            NextMusic
+          </Typography>
+         </Toolbar>
        <List>
-         {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-           <ListItemButton
-             key={text}
-             sx={{
-               minHeight: 48,
-               justifyContent: open ? 'initial' : 'center',
-               px: 2.5,
-             }}
-           >
-             <ListItemIcon
-               sx={{
-                 minWidth: 0,
-                 mr: open ? 3 : 'auto',
-                 justifyContent: 'center',
-               }}
-             >
-               {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-             </ListItemIcon>
-             <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
-           </ListItemButton>
-         ))}
+       {navigations.map((item, index) => (
+            // eslint-disable-next-line @next/next/link-passhref
+            <Link href={item.name.toLowerCase()} key={index}>
+              <ListItem button>
+                <ListItemIcon>
+                  <item.icon className='h-6 w-6 '/>
+                </ListItemIcon>
+                <ListItemText  primary={item.name}/>
+              </ListItem>
+            </Link>
+          ))}
        </List>
      </Drawer>
+      </>
+      
      }
      
       <Box component="main" sx={{ flexGrow: 1, p: state.logged ? 3 : 0 }}>
-          {props.children}
+        <div className={state.logged ? 'ml-28 mt-16' : ''}>{props.children}</div>
+        <BottomPlayer />
       </Box>
     </Box>
   );
