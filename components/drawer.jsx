@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/link-passhref */
-import React, {useState } from 'react';
+import React, {useState, useCallback } from 'react';
 import { styled, useTheme, alpha } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -22,6 +22,7 @@ import AppBar from '@mui/material/AppBar';
 import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
 import BottomPlayer from './player/bottomPlayer';
+import debounce from '../utility/debounce';
 
 const drawerWidth = 180;
 
@@ -55,14 +56,13 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   color: 'inherit',
   '& .MuiInputBase-input': {
     padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
     transition: theme.transitions.create('width'),
     width: '100%',
     [theme.breakpoints.up('sm')]: {
-      width: '30ch',
+      width: '40ch',
       '&:focus': {
-        width: '40ch',
+        width: '50ch',
       },
     },
   },
@@ -72,7 +72,7 @@ const options = {
 	method: 'GET',
 	headers: {
 		'X-RapidAPI-Host': 'spotify23.p.rapidapi.com',
-		'X-RapidAPI-Key': 'c756857792msh9edb180d6875398p160976jsn215dc6fea73b'
+		'X-RapidAPI-Key': '8d62796f53msh915f625fd3e5709p1bbdc7jsnfed37800d073'
 	}
 };
 const navigations =  [{name:'Home',icon:HomeIcon}, {name:'Bibliotheque',icon:CollectionIcon}, {name:'Favoris',icon:HeartIcon} ];
@@ -81,28 +81,36 @@ export default function MiniDrawer(props) {
   const router = useRouter();
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
   const [openSearch, setOpenSearch] = useState(false);
   
-  const getMusicAPI = (text)=>{
-    fetch('https://spotify23.p.rapidapi.com/search/?q='+text+'&type=tracks&offset=0&limit=30&numberOfTopResults=5', options)
-    .then(response => {
-      if (!response.ok) {
-        throw new Error(
-          `This is an HTTP error: The status is ${response.status}`
-        );
+  const spotifyAPI = (text) =>{
+    setOpenSearch(true)
+    setData(null);
+    setLoading(true)
+    getMusicAPI(text)
+  }
+
+  const getMusicAPI = useCallback(
+    debounce (async (text) => {
+      try{
+        const response = await fetch('https://spotify23.p.rapidapi.com/search/?q='+text+'&type=tracks&offset=0&limit=30&numberOfTopResults=5', options)
+        if (!response.ok) {
+          throw new Error(
+            `This is an HTTP error: The status is ${response.status}`
+          );
+        }
+        let actualData = await response.json();
+        setData(actualData.tracks.items);
+        setError(null);
       }
-      return response.json();
-    })
-    .then((actualData) => {
-      setData(actualData.tracks.items);
-      setError(null);
-      setOpenSearch(true)
-    })
-    .catch((err) => {
-      setError(err.message);
-      setData(null);
-    })
-  };
+      catch(e){
+        setError(e)
+        setData(null)
+      }
+      setLoading(false)
+    }, 500)
+  ,[]);
 
   React.useEffect(() => {
     window.addEventListener('keydown', (event) => {
@@ -110,8 +118,17 @@ export default function MiniDrawer(props) {
         setOpenSearch(false)
       }
     });
-    
+    window.addEventListener("click", (event) => {
+      if(event.target.id!="search"){
+        setOpenSearch(false)
+      }
+    });
+    if(localStorage.darkMode=="true")
+      document.getElementsByTagName('body')[0].classList.add('dark')
+    else 
+      document.getElementsByTagName('body')[0].classList.remove('dark')
     dispatch({type:"CHANGE_DARK", payload:localStorage.darkMode=="true"?true:false})
+
     if(localStorage.user){
       dispatch({type:"LOGGED_IN_USER", payload : localStorage.user});
 
@@ -133,17 +150,18 @@ export default function MiniDrawer(props) {
       sx={{ width: `calc(100% - ${drawerWidth}px)`, ml: `${drawerWidth}px` }}
     >
       <Toolbar>
-        <div className='relative'>
-        <Search style={{marginLeft:0}} options={data} onChange={(res)=>res.target.value.length>3?getMusicAPI(res.target.value):console.log(res.target.value)} error={error}>
+        <div className='relative' >
+        <Search style={{marginLeft:0}} options={data} onChange={(res)=>res.target.value.length<3||spotifyAPI(res.target.value)} error={error}>
           <SearchIconWrapper>
             <SearchIcon />
           </SearchIconWrapper>
           <StyledInputBase
+            id="search"
             placeholder="Search…"
             inputProps={{ 'aria-label': 'search' }}
           />
         </Search>
-        {openSearch && <CardSearch data={data}/>}
+        {openSearch && <CardSearch data={data} loading={loading}/>}
         </div>
         <Box sx={{ flexGrow: 1 }} />
         <Link href={"settings"}>
