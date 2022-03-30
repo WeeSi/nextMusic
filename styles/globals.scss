@@ -349,3 +349,6 @@ td:last-child {
 }
 
 input{color: var(--input-color)}
+.MuiInputBase-input{
+  color: var(--input-color) !important;
+}
