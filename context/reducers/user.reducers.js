@@ -10,6 +10,12 @@ export function user(state, action) {
       
       case "CHANGE_SONG":
         return { ...state, inPlay: action.payload};
+
+        case "ADD_TO_FAV":
+          return { ...state, favoris: [...state.favoris, action.payload]};
+
+        case "REMOVE_FROM_FAV":
+          return { ...state, favoris: state.favoris.filter((el) => el.id != action.payload)};
       default:
         return state;
     }

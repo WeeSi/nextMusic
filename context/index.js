@@ -11,6 +11,7 @@ const initialState = {
   volume: 0.9,
   index: 0,
   isPlaying: false,
+  favoris:[]
 };
 
 // create context

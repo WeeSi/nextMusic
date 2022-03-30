@@ -15,7 +15,8 @@ export const Songs = [
       "https://i.ytimg.com/vi_webp/IB3lcPjvWLA/maxresdefault.webp",
     date: "Mardi 07 Sep 2021",
     time:"4:03",
-    album:"538 Hitzone Best Of 2013"
+    album:"538 Hitzone Best Of 2013",
+    artistPhoto:""
   },
   {
     id: 2,
@@ -26,7 +27,8 @@ export const Songs = [
       "https://i.ytimg.com/vi/kfZpxEJfnfk/hqdefault.jpg",
     date: "Mardi 07 Sep 2021",
     time:"2:26",
-    album:"Mainstream Sellout"
+    album:"Mainstream Sellout",
+    artistPhoto:""
   },
   {
     id: 3,
@@ -37,7 +39,8 @@ export const Songs = [
       "https://i.ytimg.com/vi_webp/LrlTN7Naxl8/maxresdefault.webp",
     time:"2:51",
     date: "Mardi 07 Sep 2021",
-    album:"Double Bang"
+    album:"Double Bang",
+    artistPhoto:""
   },
   {
     id: 4,
@@ -48,7 +51,8 @@ export const Songs = [
       "https://i0.wp.com/www.printmag.com/wp-content/uploads/2021/08/fdcd5a_4202da4365114b3696e7d1b1a19e98e3mv2-1.jpeg?fit=1000%2C988&ssl=1",
     date: "30 Aout",
     time:"4:05",
-    album:"Lover Boy Certified"
+    album:"Lover Boy Certified",
+    artistPhoto:""
   },
   {
     id: 5,
@@ -59,7 +63,8 @@ export const Songs = [
       "https://i.ytimg.com/vi_webp/7llelH2kA0g/maxresdefault.webp",
     date: "29 Aout",
     time:"2:41",
-    album:"Still Striving"
+    album:"Still Striving",
+    artistPhoto:""
   },
   {
     id: 6,
@@ -70,7 +75,8 @@ export const Songs = [
       "https://i.ytimg.com/vi_webp/SgaA6RAD59I/maxresdefault.webp",
     date: "21 juin",
     time:"1:34",
-    album:"?"
+    album:"?",
+    artistPhoto:""
   },  {
     id: 7,
     src: '/assets/fingers-blue.mp3',
@@ -80,6 +86,7 @@ export const Songs = [
       "https://i.ytimg.com/vi_webp/6Vw9EFg3Ekk/maxresdefault.webp",
     date: "21 juin",
     time:"3:15",
-    album:"Deadstar"
+    album:"Deadstar",
+    artistPhoto:""
   },
 ];
