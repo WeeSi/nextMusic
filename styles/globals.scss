@@ -4,19 +4,29 @@
 :root{
   --bar-bg: #18191a;
   --seek-before-width: 0;
-  --seek-before-color: #ffc2a1;
+  --seek-before-color: transparent;
   --knobby: transparent;
-  --selectedKnobby: #26c9c3;
-  --primary:#26c9c3;
-  --theme-podcast-player:#080808;
+  --selectedKnobby: #3b82f6;
+  --primary:#3b82f6;
 }
 
 body{
-
+  --theme-podcast-player:#ffffff;
+  --body-bg-color:#f4f5fe;
+  --card:"";
+  --placeholder-color:black;
+  --input-color:black;
+  background-color: var(--body-bg-color) !important;
 }
 
 body.dark{
-
+  --theme-podcast-player:#080808;
+  --body-bg-color:#121212;
+  --card:"";
+  --placeholder-color:white;
+  --input-color:white;
+  color: white;
+  background-color: var(--body-bg-color);
 }
     
 .progressBar {
@@ -318,3 +328,20 @@ td:first-child{
 td:last-child {
   border-radius: 0 10px 10px 0;
 }
+.MuiListItem-button{
+  border-radius: 90px !important;
+}
+
+.MuiListItem-button.active{
+  background-color: var(--primary);
+  color: white !important;
+  svg{
+    color: white !important;
+  }
+}
+
+.MuiInputBase-input::placeholder{
+  color: var(--placeholder-color) !important;
+}
+
+input{color: var(--input-color)}

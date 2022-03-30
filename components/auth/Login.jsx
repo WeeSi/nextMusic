@@ -60,6 +60,7 @@ const Login = ({ setMode }) => {
           required={"Username is required"}
           error={errors.identifiant}
           placeholder="Enter your username"
+          styles={{color:"black"}}
         />
         <NmInput
           type="password"
@@ -69,6 +70,7 @@ const Login = ({ setMode }) => {
           required={"Password is required"}
           error={errors.password}
           placeholder="Enter your password"
+          styles={{color:"black"}}
         />
         <NmBtn
           label={loading ? <CircularProgress /> : "Login now"}
