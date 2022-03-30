@@ -8,6 +8,15 @@
   --knobby: transparent;
   --selectedKnobby: #26c9c3;
   --primary:#26c9c3;
+  --theme-podcast-player:#080808;
+}
+
+body{
+
+}
+
+body.dark{
+
 }
     
 .progressBar {
@@ -291,12 +300,21 @@
   }
 }
 
-.song-list-table:hover{
-  background-color: #26c9c3;
+.song-list-table:hover {
+  background: var(--theme-podcast-player);
   .play-song-icon{
     display: block;
   }
   .play-song-incr-number{
     display: none;
   }
+}
+
+td:first-child{
+  border-radius: 10px 0 0 10px;
+}
+
+// Set border-radius on the top-right and bottom-right of the last table data on the table row
+td:last-child {
+  border-radius: 0 10px 10px 0;
 }

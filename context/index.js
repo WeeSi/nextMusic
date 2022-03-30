@@ -7,7 +7,7 @@ const initialState = {
   user: {},
   logged:false,
   darkMode: false,
-  inPlay: Songs[0],
+  inPlay: {},
   volume: 0.9,
   index: 0,
   isPlaying: false,

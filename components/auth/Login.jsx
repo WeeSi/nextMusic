@@ -1,12 +1,11 @@
 import { useForm } from "react-hook-form";
-import { MusicNoteIcon, ArrowRightIcon } from "@heroicons/react/solid";
+import { ArrowRightIcon } from "@heroicons/react/solid";
 import users from "../../fakeapi/usersJson";
 import NmBtn from "../button";
 import NmInput from "../input";
-import CircularProgress from '@mui/material/CircularProgress';
+import CircularProgress from "@mui/material/CircularProgress";
 import { useContext, useState } from "react";
 import Router from "next/router";
-import { user } from "../../context/reducers/user.reducers";
 import { Context } from "../../context";
 
 const Login = ({ setMode }) => {
@@ -17,30 +16,30 @@ const Login = ({ setMode }) => {
     formState: { errors },
   } = useForm();
 
-  const [loading, setloading] = useState(false);
+  const [loading, setLoading] = useState(false);
   const { state, dispatch } = useContext(Context);
 
   const onSubmit = (data) => {
     if (data) {
-        setloading(true);
-        let findUser = users.find((item) => {
-          if (item.username == data.identifiant) {
-            return item;
-          }
-        });
-
-        if(findUser){
-            if(findUser.password === data.password){
-                delete findUser.password;
-
-               localStorage.setItem('user', JSON.stringify(findUser));
-               dispatch({type:'LOGGED_IN_USER', payload:findUser})
-               Router.push('home');
-            }
+      setLoading(true);
+      let findUser = users.find((item) => {
+        if (item.username == data.identifiant) {
+          return item;
         }
+      });
 
-        return setloading(false);
+      if (findUser) {
+        if (findUser.password === data.password) {
+          delete findUser.password;
+
+          localStorage.setItem("user", JSON.stringify(findUser));
+          dispatch({ type: "LOGGED_IN_USER", payload: findUser });
+          Router.push("home");
+        }
       }
+
+      return setLoading(false);
+    }
   };
 
   return (
@@ -58,7 +57,7 @@ const Login = ({ setMode }) => {
           label="Username"
           name="identifiant"
           register={register}
-          required={"Votre identifiant est obligatoire"}
+          required={"Username is required"}
           error={errors.identifiant}
           placeholder="Enter your username"
         />
@@ -67,7 +66,7 @@ const Login = ({ setMode }) => {
           label="Password"
           name="password"
           register={register}
-          required={"Le mot de passe est obligatoire"}
+          required={"Password is required"}
           error={errors.password}
           placeholder="Enter your password"
         />
@@ -79,12 +78,12 @@ const Login = ({ setMode }) => {
       </form>
 
       <div className="flex space-x-2 pt-8 w-full text-white">
-        <span className="text-sm flex min-w-fit">Pas encore inscrit ? </span>
+        <span className="text-sm flex min-w-fit">Not registered yet ? </span>
         <NmBtn
-          label="S'inscrire !"
+          label="Sign Up"
           variant="text"
           action={setMode}
-          svg={<ArrowRightIcon className="h-6 w-6" />}
+          svg={<ArrowRightIcon className="h-4 w-4" />}
         />
       </div>
     </div>

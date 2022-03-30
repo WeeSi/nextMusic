@@ -3,7 +3,6 @@ export function user(state, action) {
       case "LOGGED_IN_USER":
         return { ...state, user: action.payload, logged:true };
       case "CHANGE_DARK":
-        localStorage.setItem('darkMode', action.payload);
         return { ...state, darkMode: action.payload };
       
       case "CHANGE_VOLUME":

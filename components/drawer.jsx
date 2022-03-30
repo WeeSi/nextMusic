@@ -200,6 +200,7 @@ export default function MiniDrawer(props) {
       <Box component="main" sx={{ flexGrow: 1, p: state.logged ? 3 : 0 }}>
         <div className={state.logged ? 'ml-18 mt-16' : ''}>{props.children}</div> 
       </Box>
+      <BottomPlayer/>
       </ThemeProvider>
     </Box>
   );

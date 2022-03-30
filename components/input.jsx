@@ -30,7 +30,7 @@ export default function NmInput({
         className={`p-2 rounded-md focus:outline-none`}
         style={{
           color: error && "#b91c1c",
-          boxShadow: error && "inset 0 0 .5rem #b91c1c",
+          boxShadow: error && "inset 0 0 .3rem #b91c1c",
         }}
         {...register(name, {
           required: required,
