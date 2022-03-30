@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 /* eslint-disable @next/next/link-passhref */
 import React, {useState, useCallback } from 'react';
 import { styled, useTheme, alpha } from '@mui/material/styles';
@@ -23,17 +24,17 @@ import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
 import BottomPlayer from './player/bottomPlayer';
 import debounce from '../utility/debounce';
+import MenuUser from './menuUser/MenuUser';
+import UseIsLogged from '../custom-hook/IsLogged';
 
-const drawerWidth = 180;
+const drawerWidth = 250;
 
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.common.white, 0.15),
-  '&:hover': {
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
-  },
+  backgroundColor: 'var(--theme-podcast-player)',
+  borderRadius:"90px",
   marginLeft: 0,
   width: '100%',
   [theme.breakpoints.up('sm')]: {
@@ -83,6 +84,8 @@ export default function MiniDrawer(props) {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
   const [openSearch, setOpenSearch] = useState(false);
+  const logged = UseIsLogged();
+  const active = router.asPath.replace('/','');
   
   const spotifyAPI = (text) =>{
     setOpenSearch(true)
@@ -131,7 +134,7 @@ export default function MiniDrawer(props) {
     dispatch({type:"CHANGE_DARK", payload:localStorage.darkMode=="true"?true:false})
 
     if(localStorage.user){
-      dispatch({type:"LOGGED_IN_USER", payload : localStorage.user});
+      dispatch({type:"LOGGED_IN_USER", payload : JSON.parse(localStorage.user)});
 
     }else{
       if(!state.logged){
@@ -148,13 +151,14 @@ export default function MiniDrawer(props) {
       {state.logged && 
       <>
       <AppBar
+      style={{backgroundColor:"transparent", boxShadow:"unset", backgroundImage:"unset"}}
       sx={{ width: `calc(100% - ${drawerWidth}px)`, ml: `${drawerWidth}px` }}
     >
       <Toolbar>
         <div className='relative' >
         <Search style={{marginLeft:0}} options={data} onChange={(res)=>res.target.value.length<3||spotifyAPI(res.target.value)} error={error}>
           <SearchIconWrapper>
-            <SearchIcon />
+            <SearchIcon style={{color:"var(--placeholder-color)"}} />
           </SearchIconWrapper>
           <StyledInputBase
             id="search"
@@ -165,32 +169,13 @@ export default function MiniDrawer(props) {
         {openSearch && <CardSearch data={data} loading={loading}/>}
         </div>
         <Box sx={{ flexGrow: 1 }} />
-        <Link href={"settings"}>
-          <IconButton
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            sx={{ mr: 2 }}
-          >
-            <CogIcon className='h-7 w-7'/>
-          </IconButton>
-        </Link>
-        <Link href={"profile"}>
-          <IconButton
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            sx={{ mr: 2 }}
-          >
-            <UserCircleIcon className='h-7 w-7'/>
-          </IconButton>
-        </Link>
+            <MenuUser />
       </Toolbar>
     </AppBar>
        <Drawer variant="permanent" anchor="left"  sx={{
           width: drawerWidth,
           flexShrink: 0,
-          [`& .MuiDrawer-paper`]: { width: drawerWidth, boxSizing: 'border-box' },
+          [`& .MuiDrawer-paper`]: { width: drawerWidth, boxSizing: 'border-box',border:"unset", padding:"0px 10px"},
         }}>
         
         <Toolbar>
@@ -201,10 +186,10 @@ export default function MiniDrawer(props) {
           </Link>
          </Toolbar>
          
-       <List>
+       <List className='space-y-1'>
        {navigations.map((item, index) => (
             <Link href={item.name.toLowerCase()} key={index}>
-              <ListItem button>
+              <ListItem className={`${active === item.name.toLowerCase() ? 'active' : ''}`} button>
                 <ListItemIcon>
                   <item.icon className='h-6 w-6'/>
                 </ListItemIcon>
@@ -219,7 +204,7 @@ export default function MiniDrawer(props) {
       <Box component="main" sx={{ flexGrow: 1, p: state.logged ? 3 : 0 }}>
         <div className={state.logged ? 'ml-18 mt-16' : ''}>{props.children}</div> 
       </Box>
-      <BottomPlayer/>
+      {state.logged && <BottomPlayer/>}
       </ThemeProvider>
     </Box>
   );
