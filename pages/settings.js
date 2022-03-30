@@ -6,7 +6,7 @@ const Settings = () => {
   const { state, dispatch } = useContext(Context);
   
   const toggleTheme = () => {
-    localStorage.setItem('darkMode', !state.darkMode);
+    localStorage.darkMode = !state.darkMode;
     if(!state.darkMode)
       document.getElementsByTagName('body')[0].classList.add('dark')
     else 

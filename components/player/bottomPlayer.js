@@ -153,7 +153,6 @@ const BottomPlayer = (props) => {
             cancelAnimationFrame(animationRef.current);
           }
         }else{
-        console.log("ici");
           dispatch({type : "CHANGE_SONG", payload:Songs[0]})
         }
         

@@ -12,6 +12,10 @@ export default function NmBtn({
         return "hover:text-blue-500 hover:underline";
       case "outline":
         return "flex px-5 py-2 justify-center text-white rounded-full border border-blue-500";
+      case "outline-black":
+        return "flex px-5 py-2 justify-center text-black rounded-full border border-black";
+      case "black":
+        return "flex px-5 py-2 justify-center text-white rounded-full bg-black";
       default:
         return "flex px-5 py-2 justify-center bg-blue-500 rounded-full";
     }

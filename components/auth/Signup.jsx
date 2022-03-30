@@ -62,6 +62,7 @@ export default function Signup({ setMode }) {
           required={"A new username is required"}
           error={errors.identifiant}
           placeholder="Enter your username"
+          styles={{color:"black"}}
         />
 
         <NmInput
@@ -72,6 +73,7 @@ export default function Signup({ setMode }) {
           required={"A new password is required"}
           error={errors.password}
           placeholder="Enter your password"
+          styles={{color:"black"}}
         />
         <NmBtn
           label={loading ? <CircularProgress /> : "Register"}

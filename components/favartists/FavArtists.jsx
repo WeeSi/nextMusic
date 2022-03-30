@@ -30,15 +30,15 @@ const favArtists = [
 const FavArtists = () => {
   return (
     <div className="mt-9">
-    <h1>Fav Artist</h1>
+    <h1 className="font-bold">Fav Artist</h1>
     <ul role="list" className="mt-2 space-y-4">
        {favArtists.map((artist) => (
          <li key={artist.name} className="flex items-center">
            <img className="object-cover h-10 w-10 rounded-full" src={artist.image} alt="" />
            <div className="ml-3 flex items-center justify-between w-full">
              <div >
-               <p className="text-sm font-medium text-white">{artist.name}</p>
-               <p className="text-xs text-white opacity-40">{artist.desc}</p>
+               <p className="text-sm font-medium ">{artist.name}</p>
+               <p className="text-xs  opacity-40">{artist.desc}</p>
              </div>
              <DotsHorizontalIcon className="h-5 cursor-pointer" />
            </div>
