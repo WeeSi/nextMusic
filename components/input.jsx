@@ -11,6 +11,7 @@ export default function NmInput({
   error,
   placeholder,
   autocomplete = "email",
+  styles
 }) {
   useEffect(() => {}, [error]);
 
@@ -29,8 +30,8 @@ export default function NmInput({
         placeholder={placeholder}
         className={`p-2 rounded-md focus:outline-none`}
         style={{
-          color: error && "#b91c1c",
-          boxShadow: error && "inset 0 0 .5rem #b91c1c",
+          color: error ? "#b91c1c" : styles.color || "black",
+          boxShadow: error && "inset 0 0 .3rem #b91c1c",
         }}
         {...register(name, {
           required: required,

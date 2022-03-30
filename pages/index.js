@@ -1,5 +1,5 @@
 import AuthPage from '../components/auth/auth';
-
+import HomePlayer from './home';
 import { Context } from '../context';
 import { useContext, useEffect } from 'react';
 
@@ -10,7 +10,7 @@ function Index(props) {
     return <AuthPage {...props} />;
   }
 
-  return <>loading</>
+  return <HomePlayer />
 }
 
 export default Index;

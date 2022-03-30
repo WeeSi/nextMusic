@@ -23,7 +23,6 @@ const BottomPlayer = (props) => {
     const [currentTime, setCurrentTime] = useState(0);
     const [inplay, setInplay] = useState({});
     const [isPlaying, setIsPlaying] = useState(false);
-    const [showHidePlayer, setShowHidePlayer] = useState(false);
     const [disableNext, setDisableNext] = useState(true);
     const [disablePrev, setDisablePrev] = useState(true);
     const [nextPlaySong, setNextPlaySong] = useState({});
@@ -42,6 +41,7 @@ const BottomPlayer = (props) => {
         let currentSong = Songs.findIndex((song) => song.id == state.inPlay.id);
         
         if (typeof currentSong != "undefined") var currentIndex = currentSong;
+        else currentIndex = index;
 
         console.log(index,currentIndex)
     
@@ -141,16 +141,21 @@ const BottomPlayer = (props) => {
       };
     
       const toggleAudio = () => {
-        const prevValue = isPlaying;
-        setIsPlaying(!prevValue);
-    
-        if (!prevValue) {
-          audio.current.play();
-          animationRef.current = requestAnimationFrame(whilePlaying);
-        } else {
-          audio.current.pause();
-          cancelAnimationFrame(animationRef.current);
+        if(state.inPlay.id){
+          const prevValue = isPlaying;
+          setIsPlaying(!prevValue);
+      
+          if (!prevValue) {
+            audio.current.play();
+            animationRef.current = requestAnimationFrame(whilePlaying);
+          } else {
+            audio.current.pause();
+            cancelAnimationFrame(animationRef.current);
+          }
+        }else{
+          dispatch({type : "CHANGE_SONG", payload:Songs[0]})
         }
+        
       };
     
       const whilePlaying = () => {
