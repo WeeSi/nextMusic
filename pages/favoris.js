@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import React from "react";
 const Index = () => {
     return (
@@ -6,7 +7,7 @@ const Index = () => {
                 <div className="flex flex-col lg:flex-row p-4 lg:p-8 justify-between items-start lg:items-stretch w-full">
                     <div className="w-full lg:w-1/3 flex flex-col lg:flex-row items-start lg:items-center">
                         <div className="flex items-center">
-                            <a className="text-red-500 p-2 border-transparent border bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 hover:bg-gray-200 cursor-pointer rounded focus:outline-none focus:border-gray-800 focus:shadow-outline-gray" href="javascript: void(0)">
+                            <a className="text-red-500 p-2 border-transparent border bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 hover:bg-gray-200 cursor-pointer rounded focus:outline-none focus:border-gray-800 focus:shadow-outline-gray">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="icon cursor-pointer icon-tabler icon-tabler-trash" width={20} height={20} viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" />
                                     <line x1={4} y1={7} x2={20} y2={7} />
@@ -63,7 +64,7 @@ const Index = () => {
                                 <td className="pr-6 whitespace-no-wrap">
                                     <div className="flex items-center">
                                         <div className="h-8 w-8">
-                                            <img src="https://e-cdn-images.dzcdn.net/images/cover/48c82ad4f0c1b28e461aa0fc71c68171/264x264-000000-80-0-0.jpg" alt className="h-full w-full  overflow-hidden shadow" />
+                                            <img src="https://e-cdn-images.dzcdn.net/images/cover/48c82ad4f0c1b28e461aa0fc71c68171/264x264-000000-80-0-0.jpg" alt="1" className="h-full w-full  overflow-hidden shadow" />
                                         </div>
                                     </div>
                                 </td>
@@ -72,7 +73,7 @@ const Index = () => {
                                 <td className="pr-6 whitespace-no-wrap">
                                     <div className="flex items-center">
                                         <div className="h-8 w-8">
-                                            <img src="https://e-cdn-images.dzcdn.net/images/artist/7889d4bea0c2be97eec34ddac2f2a104/264x264-000000-80-0-0.jpg" alt className="h-full w-full rounded-full overflow-hidden shadow" />
+                                            <img src="https://e-cdn-images.dzcdn.net/images/artist/7889d4bea0c2be97eec34ddac2f2a104/264x264-000000-80-0-0.jpg" alt="2" className="h-full w-full rounded-full overflow-hidden shadow" />
                                         </div>
                                         <p className="ml-2 text-gray-800 dark:text-gray-100 tracking-normal leading-4 text-sm">Orelsan</p>
                                     </div>
@@ -99,7 +100,7 @@ const Index = () => {
                                 <td className="pr-6 whitespace-no-wrap">
                                     <div className="flex items-center">
                                         <div className="h-8 w-8">
-                                            <img src="https://e-cdn-images.dzcdn.net/images/cover/35d0f35b7fb155672bb49bab5b2fe1ca/264x264-000000-80-0-0.jpg" alt className="h-full w-full  overflow-hidden shadow" />
+                                            <img src="https://e-cdn-images.dzcdn.net/images/cover/35d0f35b7fb155672bb49bab5b2fe1ca/264x264-000000-80-0-0.jpg" alt="3" className="h-full w-full  overflow-hidden shadow" />
                                         </div>
                                     </div>
                                 </td>
@@ -108,7 +109,7 @@ const Index = () => {
                                 <td className="pr-6 whitespace-no-wrap">
                                     <div className="flex items-center">
                                         <div className="h-8 w-8">
-                                            <img src="https://e-cdn-images.dzcdn.net/images/artist/231b5fdb7b93df456f24e96499c72e39/264x264-000000-80-0-0.jpg" alt className="h-full w-full rounded-full overflow-hidden shadow" />
+                                            <img src="https://e-cdn-images.dzcdn.net/images/artist/231b5fdb7b93df456f24e96499c72e39/264x264-000000-80-0-0.jpg" alt="4" className="h-full w-full rounded-full overflow-hidden shadow" />
                                         </div>
                                         <p className="ml-2 text-gray-800 dark:text-gray-100 tracking-normal leading-4 text-sm">Machine Gun Kelly</p>
                                     </div>
@@ -134,7 +135,7 @@ const Index = () => {
                                 <td className="pr-6 whitespace-no-wrap">
                                     <div className="flex items-center">
                                         <div className="h-8 w-8">
-                                            <img src="https://e-cdn-images.dzcdn.net/images/cover/e077811f414d193c2d48fd4c863ff7bd/264x264-000000-80-0-0.jpg" alt className="h-full w-full  overflow-hidden shadow" />
+                                            <img src="https://e-cdn-images.dzcdn.net/images/cover/e077811f414d193c2d48fd4c863ff7bd/264x264-000000-80-0-0.jpg" alt="5" className="h-full w-full  overflow-hidden shadow" />
                                         </div>
                                     </div>
                                 </td>
@@ -143,7 +144,7 @@ const Index = () => {
                                 <td className="pr-6 whitespace-no-wrap">
                                     <div className="flex items-center">
                                         <div className="h-8 w-8">
-                                            <img src="https://e-cdn-images.dzcdn.net/images/artist/7a26f3f1ff8f37f5ecc32e085604cf2c/264x264-000000-80-0-0.jpg" alt className="h-full w-full rounded-full overflow-hidden shadow" />
+                                            <img src="https://e-cdn-images.dzcdn.net/images/artist/7a26f3f1ff8f37f5ecc32e085604cf2c/264x264-000000-80-0-0.jpg" alt="6" className="h-full w-full rounded-full overflow-hidden shadow" />
                                         </div>
                                         <p className="ml-2 text-gray-800 dark:text-gray-100 tracking-normal leading-4 text-sm">GRAViiTY</p>
                                     </div>
@@ -169,7 +170,7 @@ const Index = () => {
                                 <td className="pr-6 whitespace-no-wrap">
                                     <div className="flex items-center">
                                         <div className="h-8 w-8">
-                                            <img src="https://e-cdn-images.dzcdn.net/images/cover/55a3c1b5129abaee4734e1896c54da44/264x264-000000-80-0-0.jpg" alt className="h-full w-full  overflow-hidden shadow" />
+                                            <img src="https://e-cdn-images.dzcdn.net/images/cover/55a3c1b5129abaee4734e1896c54da44/264x264-000000-80-0-0.jpg" alt="8" className="h-full w-full  overflow-hidden shadow" />
                                         </div>
                                     </div>
                                 </td>
@@ -178,7 +179,7 @@ const Index = () => {
                                 <td className="pr-6 whitespace-no-wrap">
                                     <div className="flex items-center">
                                         <div className="h-8 w-8">
-                                            <img src="https://e-cdn-images.dzcdn.net/images/artist/07312c70ab00455c33c3b867f4b7e3a2/264x264-000000-80-0-0.jpg" alt className="h-full w-full rounded-full overflow-hidden shadow" />
+                                            <img src="https://e-cdn-images.dzcdn.net/images/artist/07312c70ab00455c33c3b867f4b7e3a2/264x264-000000-80-0-0.jpg" alt="9" className="h-full w-full rounded-full overflow-hidden shadow" />
                                         </div>
                                         <p className="ml-2 text-gray-800 dark:text-gray-100 tracking-normal leading-4 text-sm">Møme</p>
                                     </div>

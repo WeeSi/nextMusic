@@ -91,6 +91,7 @@ export default function MiniDrawer(props) {
     getMusicAPI(text)
   }
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const getMusicAPI = useCallback(
     debounce (async (text) => {
       try{

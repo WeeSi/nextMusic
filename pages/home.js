@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { DotsHorizontalIcon, PlayIcon } from "@heroicons/react/solid";
 import { useContext } from "react";
 import NmBtn from "../components/button";
@@ -18,7 +19,7 @@ function HomePlayer(props) {
     <>
       <div style={{paddingBottom:"150px"}} className="flex space-x-8">
         <div className="w-full">
-          <span className="text-xs opacity-30">What's hot</span>
+          <span className="text-xs opacity-30">What&apos;s hot</span>
            <div className="flex justify-between items-end"> 
               <div className="w-full"> <h1 className="text-3xl">Trending</h1> </div>
               <NmBtn variant={"text"} label="More" />
