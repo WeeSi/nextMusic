@@ -25,7 +25,7 @@ const Trending = () => {
             <div className="mt-4 mb-9">
               <div className="relative flex flex-col rounded-xl shadow-md overflow-hidden">
                   <div className="flex-shrink-0 relative">
-                    <div style={{backgroundColor:"#ffffff4d"}} className="absolute h-full z-10 w-full"></div>
+                    <div style={{backgroundColor:"rgb(47 47 47 / 33%)"}} className="absolute h-full z-10 w-full"></div>
                    {song?.image && <img style={{height:"370px"}} className="w-full object-cover" src={song.image} alt="" />} 
                   </div>
                   <div className="flex-1 w-full absolute bottom-0 z-20 p-6 flex flex-col justify-between">

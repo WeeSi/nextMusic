@@ -1,36 +1,41 @@
-import { Songs } from "../components/player/songs";
-
-const backgroundImageURL =
-      "https://e-cdns-images.dzcdn.net/images/playlist/035a9995c78b31f04093dcfeea605e81/264x264-000000-80-0-0.jpg";
-    const containerStyle = {
-      backgroundImage:
-        `url(${backgroundImageURL})`,
-    };
-
-
-    
-        
+import { PauseIcon, PlayIcon } from "@heroicons/react/solid";
+import { useContext } from "react";
+import { Songs } from "../components/player/songs";    
+import {Context} from '../context/index';        
 
 const Bibliotheque = () => {
 
+    const {state,dispatch} = useContext(Context)
+    const playSong = (item) => {
+        dispatch({type:"CHANGE_SONG", payload:item});
+    }
+
   return (
-<div>
+<div style={{paddingBottom:"150px"}}>
  <div className="w-full">
         <div className="grid grid-cols-4 gap-6">
 
-    {Songs.map((song) => (
-       <div key={song.id}> {
+    {Songs.map((song) => {
+        let isPlaying = state.inPlay.id == song.id;
 
-        <div className="rounded">
-        <div style={containerStyle} className="w-full h-64 flex flex-col justify-between  rounded-lg mb-6 cursor-pointer">
-            <svg xmlns="http://www.w3.org/2000/svg"  width={80} height={260} viewBox="-2 -28 25 20" strokeWidth="1.5" stroke="white" fill="none" strokeLinecap="round" strokeLinejoin="round">
-              <path  d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"  />
-            </svg>
-        </div>   
-      </div>
-       } 
-       </div>
-    ))}
+      return(<div key={song.id}> 
+            <div className="rounded">
+            <div onClick={() => playSong(song)} style={{backgroundImage:`url(${song.image})`, backgroundPosition:"center",backgroundSize:"cover"}} className="w-full h-64 flex flex-col justify-between  rounded-lg mb-6 cursor-pointer relative overflow-hidden">
+                <div style={{backgroundColor:"rgb(18 18 18 / 69%)"}} className="absolute h-full z-10 w-full"></div>
+                <div className="h-full relative z-20">
+                    <div className="h-full flex items-end p-3">
+                        {isPlaying && <PauseIcon className="text-white h-16 w-16" />}
+                        {!isPlaying && <PlayIcon className="text-white h-16 w-16"/>}
+                        <div>
+                            <p><span className="text-white font-bold text-xl">{song.artist}</span></p>
+                            <p><span className="text-white text-xs font-bold">{song.title}</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>   
+            </div>
+       </div>)
+    })}
 </div>
 </div>
 </div>
