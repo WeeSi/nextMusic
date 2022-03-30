@@ -28,7 +28,7 @@ const users = [
     lastname: "",
     username: "greg",
     password: "eorto",
-    image: "",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWwZqcZY9ZOgGMalo6c7UbpUQLfdAaSTZ_wA&usqp=CAU",
     _id: 4,
   },
 ];

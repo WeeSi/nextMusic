@@ -151,7 +151,7 @@ export default function MiniDrawer(props) {
       {state.logged && 
       <>
       <AppBar
-      style={{backgroundColor:"transparent", boxShadow:"unset", backgroundImage:"unset"}}
+      style={{backgroundColor:state.darkMode||'#f4f5fe', borderBottom: state.darkMode?'':'1px solid #dcdada', boxShadow:"unset", backgroundImage:"unset"}}
       sx={{ width: `calc(100% - ${drawerWidth}px)`, ml: `${drawerWidth}px` }}
     >
       <Toolbar>
@@ -180,9 +180,7 @@ export default function MiniDrawer(props) {
         
         <Toolbar>
         <Link href={"home"}>
-          <Typography variant="h6" noWrap component="div">
-            NextMusic
-          </Typography>
+          <img alt="logo" src={state.darkMode?'/images/logo_black.png':'/images/logo_white.png'} style={{height: 90}}></img>
           </Link>
          </Toolbar>
          

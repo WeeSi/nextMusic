@@ -32,7 +32,7 @@ export default function MenuUser() {
   }
 
   return (
-    <React.Fragment>
+    <React.Fragment >
       <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
         <Tooltip title="Account settings">
           <IconButton
@@ -86,7 +86,7 @@ export default function MenuUser() {
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
         
-        <MenuItem>
+        <MenuItem> 
         <ListItemIcon>
             <ModeNight fontSize="small" />
           </ListItemIcon>
