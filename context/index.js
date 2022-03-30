@@ -6,7 +6,8 @@ import { user } from "./reducers/user.reducers";
 const initialState = {
   user: {},
   logged:false,
-  inPlay: Songs[0],
+  darkMode: false,
+  inPlay: {},
   volume: 0.9,
   index: 0,
   isPlaying: false,

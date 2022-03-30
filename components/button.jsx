@@ -10,22 +10,24 @@ export default function NmBtn({
     switch (variant) {
       case "text":
         return "hover:text-blue-500 hover:underline";
+      case "outline":
+        return "flex px-5 py-2 justify-center text-white rounded-full border border-blue-500";
       default:
-        return "flex p-2 justify-center bg-blue-500 rounded-md";
+        return "flex px-5 py-2 justify-center bg-blue-500 rounded-full";
     }
   };
 
   return (
     <div
-      className={`flex w-full ${getClassname(variant)}`}
+      className={`flex ${getClassname(variant)} cursor-pointer`}
       style={{ marginTop: styles.marginTop }}
     >
       <button className="flex w-full" onClick={action} type={type}>
         <div
-          className="flex w-full space-x-2 hover:font-semibold"
+          className="flex w-full space-x-2"
           style={{ justifyContent: !variant ? "center" : "start" }}
         >
-          <span className="text-sm">{label}</span>
+          <span className="text-md">{label}</span>
           {svg && <div className="flex items-center pb-1 w-6 h-6">{svg}</div>}
         </div>
       </button>

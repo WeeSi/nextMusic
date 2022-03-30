@@ -14,7 +14,8 @@ export const Songs = [
     image:
       "https://i.ytimg.com/vi_webp/IB3lcPjvWLA/maxresdefault.webp",
     date: "Mardi 07 Sep 2021",
-    time:"4:03"
+    time:"4:03",
+    album:"538 Hitzone Best Of 2013"
   },
   {
     id: 2,
@@ -24,50 +25,52 @@ export const Songs = [
     image:
       "https://i.ytimg.com/vi/kfZpxEJfnfk/hqdefault.jpg",
     date: "Mardi 07 Sep 2021",
-    time:"2:26"
+    time:"2:26",
+    album:"Mainstream Sellout"
   },
-  // {
-  //   id: 3,
-  //   src: song3,
-  //   title: "Quand Van Gaal et un journaliste néerlandais parlent tactique",
-  //   artist: "After Foot",
-  //   image:
-  //     "https://img.bfmtv.com/i/0/0/508/508656ae261ee1673f6383714cde476f.jpeg",
-  //   date: "Mardi 07 Sep 2021",
-  // },
-  // {
-  //   id: 4,
-  //   src: song4,
-  //   title: "Tout savoir sur la draft NBA 2021",
-  //   artist: "Dunkhebdo",
-  //   image:
-  //     "https://dunkhebdo.com/wp-content/uploads/2021/07/Dunkhebdo-SF2-Twitter-Profile-image.jpg",
-  //   date: "30 Aout",
-  // },
-  // {
-  //   id: 5,
-  //   src: song5,
-  //   title: "Replay Live Youtube 29 Aout 2021",
-  //   artist: "Dunkhebdo",
-  //   image:
-  //     "https://dunkhebdo.com/wp-content/uploads/2021/07/Dunkhebdo-SF2-Twitter-Profile-image.jpg",
-  //   date: "29 Aout",
-  // },
-  // {
-  //   id: 6,
-  //   src: song6,
-  //   title: "Free Agency NBA 2021",
-  //   artist: "Dunkhebdo",
-  //   image:
-  //     "https://dunkhebdo.com/wp-content/uploads/2021/07/Dunkhebdo-SF2-Twitter-Profile-image.jpg",
-  //   date: "21 juin",
-  // },  {
-  //   id: 7,
-  //   src: song7,
-  //   title: "FROM THE ASHES WE RISE AGAIN",
-  //   artist: "Berend Salverda",
-  //   image:
-  //     "https://cdnb.artstation.com/p/assets/images/images/014/794/559/large/paul-nong-mononoke-50-percent.jpg?1545530645",
-  //   date: "21 juin",
-  // },
+  {
+    id: 3,
+    src: '/assets/leto-double-bang-episode-6-freestyle.mp3',
+    title: "Double Bang Episode 6 (Freestyle)",
+    artist: "Leto",
+    image:
+      "https://i.ytimg.com/vi_webp/LrlTN7Naxl8/maxresdefault.webp",
+    time:"2:51",
+    date: "Mardi 07 Sep 2021",
+  },
+  {
+    id: 4,
+    src: '/assets/leto-double-bang-episode-6-freestyle.mp3',
+    title: "Tout savoir sur la draft NBA 2021",
+    artist: "Dunkhebdo",
+    image:
+      "https://dunkhebdo.com/wp-content/uploads/2021/07/Dunkhebdo-SF2-Twitter-Profile-image.jpg",
+    date: "30 Aout",
+  },
+  {
+    id: 5,
+    src: '/assets/leto-double-bang-episode-6-freestyle.mp3',
+    title: "Replay Live Youtube 29 Aout 2021",
+    artist: "Dunkhebdo",
+    image:
+      "https://dunkhebdo.com/wp-content/uploads/2021/07/Dunkhebdo-SF2-Twitter-Profile-image.jpg",
+    date: "29 Aout",
+  },
+  {
+    id: 6,
+    src: '/assets/leto-double-bang-episode-6-freestyle.mp3',
+    title: "Free Agency NBA 2021",
+    artist: "Dunkhebdo",
+    image:
+      "https://dunkhebdo.com/wp-content/uploads/2021/07/Dunkhebdo-SF2-Twitter-Profile-image.jpg",
+    date: "21 juin",
+  },  {
+    id: 7,
+    src: '/assets/leto-double-bang-episode-6-freestyle.mp3',
+    title: "FROM THE ASHES WE RISE AGAIN",
+    artist: "Berend Salverda",
+    image:
+      "https://cdnb.artstation.com/p/assets/images/images/014/794/559/large/paul-nong-mononoke-50-percent.jpg?1545530645",
+    date: "21 juin",
+  },
 ];
