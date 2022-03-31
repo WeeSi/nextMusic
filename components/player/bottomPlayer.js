@@ -17,7 +17,7 @@ import { Songs } from "./songs";
 
 const BottomPlayer = (props) => {
     const  {state, dispatch} = useContext(Context);
-
+    const root = document.getElementsByTagName('body')[0];
     const [statevolum, setStateVolum] = useState(state.volume);
     const [dur, setDur] = useState(0);
     const [currentTime, setCurrentTime] = useState(0);
@@ -80,6 +80,7 @@ const BottomPlayer = (props) => {
 
         setIndex(currentIndex)
         
+        root.style.setProperty('--primary', `${state.inPlay.filter}`);
         return volume?.current?.style.setProperty(
           "--seek-before-width",
           `${statevolum * 100}%`
@@ -196,7 +197,7 @@ const BottomPlayer = (props) => {
           style={{
             zIndex: "999999",
             transition: "all 0.3s ease 0s",
-            maxWidth:"600px"
+            maxWidth:"660px"
           }}
           className="mx-auto fixed bottom-0 inset-x-0 pb-2 sm:pb-5"
         >
@@ -245,7 +246,7 @@ const BottomPlayer = (props) => {
                       </button>
                         <button
                             style={{
-                            background: "var(--primary)",
+                            background: state.inPlay.filter || 'var(--primary)',
                             padding:"15px"
                             }}
                             className="justify-center flex rounded-full"
@@ -257,7 +258,6 @@ const BottomPlayer = (props) => {
                             width="16"
                             height="16"
                             viewBox="0 0 24 24"
-                            fill="var(--text-button-color)"
                           >
                             <path d="M3 22v-20l18 10-18 10z" />
                           </svg>
@@ -268,7 +268,6 @@ const BottomPlayer = (props) => {
                             width="16"
                             height="16"
                             viewBox="0 0 24 24"
-                            fill="var(--text-button-color)"
                           >
                             <path d="M10 24h-6v-24h6v24zm10-24h-6v24h6v-24z" />
                           </svg>

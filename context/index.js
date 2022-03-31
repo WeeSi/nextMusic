@@ -1,6 +1,5 @@
-import { useState, useEffect, useReducer, createContext } from "react";
-import { Songs } from "../components/player/songs";
-import { user } from "./reducers/user.reducers";
+import { useReducer, createContext } from "react";
+import { global } from "./reducers/global.reducers";
 
 // initial state
 const initialState = {
@@ -25,7 +24,7 @@ const combineReducers = (...reducers) => (state, action) => {
 
 // context provider
 const Provider = ({ children }) => {
-  const [state, dispatch] = useReducer(combineReducers(user), initialState);
+  const [state, dispatch] = useReducer(combineReducers(global), initialState);
   const value = { state, dispatch };
 
   return <Context.Provider value={value}>{children}</Context.Provider>;
