@@ -80,7 +80,7 @@ const BottomPlayer = (props) => {
 
         setIndex(currentIndex)
         
-        root.style.setProperty('--primary', `${state.inPlay.filter}`);
+        if(state.inPlay.filter) root.style.setProperty('--primary', `${state.inPlay.filter || "#3b82f6"}`);
         return volume?.current?.style.setProperty(
           "--seek-before-width",
           `${statevolum * 100}%`
