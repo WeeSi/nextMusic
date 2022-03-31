@@ -93,6 +93,7 @@ const SongsList = ({item,favoris, index, addToFav, playSong}) => {
                     </td>
                     <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium ">
                     <>
+                     <img alt={item.artist} src={item.artistPhoto} className="inline-block h-8 w-8 rounded-full mr-2 object-cover" />
                      {item.artist}
                     </>
                     </td>

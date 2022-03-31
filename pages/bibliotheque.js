@@ -21,7 +21,7 @@ const Bibliotheque = () => {
       return(<div key={song.id}> 
             <div className="rounded">
             <div onClick={() => playSong(song)} style={{backgroundImage:`url(${song.image})`, backgroundPosition:"center",backgroundSize:"cover"}} className="w-full h-64 flex flex-col justify-between  rounded-lg mb-6 cursor-pointer relative overflow-hidden">
-                <div style={{backgroundColor:"rgb(18 18 18 / 69%)"}} className="absolute h-full z-10 w-full"></div>
+                <div style={{backgroundColor:song.filter}} className="absolute h-full z-10 w-full"></div>
                 <div className="h-full relative z-20">
                     <div className="h-full flex items-end p-3">
                         {isPlaying && <PauseIcon className="text-white h-16 w-16" />}

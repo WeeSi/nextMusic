@@ -16,7 +16,8 @@ export const Songs = [
     date: "Mardi 07 Sep 2021",
     time:"4:03",
     album:"538 Hitzone Best Of 2013",
-    artistPhoto:""
+    artistPhoto:"https://www.electrobeach.com/wp-content/uploads/2021/11/Afrojack-VignetteOK.jpg",
+    filter:"#35201c99"
   },
   {
     id: 2,
@@ -28,7 +29,8 @@ export const Songs = [
     date: "Mardi 07 Sep 2021",
     time:"2:26",
     album:"Mainstream Sellout",
-    artistPhoto:""
+    artistPhoto:"https://www.hiersoiraparis.com/wp-content/uploads/2021/01/Untitled-design1.jpg",
+    filter:"#4a49499c"
   },
   {
     id: 3,
@@ -40,7 +42,8 @@ export const Songs = [
     time:"2:51",
     date: "Mardi 07 Sep 2021",
     album:"Double Bang",
-    artistPhoto:""
+    artistPhoto:"https://yard.media/wp-content/uploads/2020/09/leto-yard-alextrescool-14-1125x1406.jpg",
+    filter:"#3b1518a3"
   },
   {
     id: 4,
@@ -52,7 +55,8 @@ export const Songs = [
     date: "30 Aout",
     time:"4:05",
     album:"Lover Boy Certified",
-    artistPhoto:""
+    artistPhoto:"https://img.lemde.fr/2021/12/07/0/0/3544/2307/664/0/75/0/c16eba2_5148822-01-06.jpg",
+    filter:"#5b5b5bb5"
   },
   {
     id: 5,
@@ -64,7 +68,8 @@ export const Songs = [
     date: "29 Aout",
     time:"2:41",
     album:"Still Striving",
-    artistPhoto:""
+    artistPhoto:"https://www.booska-p.com/wp-content/uploads/2021/11/a-ap-ferg-signe-sur-roc-nation-et-supprime-le-a-ap-de-son-nom-de-sc-ne-649.jpg",
+    filter:"#6917178f"
   },
   {
     id: 6,
@@ -76,7 +81,8 @@ export const Songs = [
     date: "21 juin",
     time:"1:34",
     album:"?",
-    artistPhoto:""
+    artistPhoto:"https://cdn.radiofrance.fr/s3/cruiser-production/2022/02/75611571-d400-4b2b-9a3b-0320b7c46e9c/1200x680_sans-titre-2.jpg",
+    filter:"#5e5e5ebf"
   },  {
     id: 7,
     src: '/assets/fingers-blue.mp3',
@@ -87,6 +93,7 @@ export const Songs = [
     date: "21 juin",
     time:"3:15",
     album:"Deadstar",
-    artistPhoto:""
+    artistPhoto:"https://dice-i-scdn-co.imgix.net/image/ab6761610000e5eb7caf23154583969c7482e0ec",
+    filter:"#1c2000b5"
   },
 ];
