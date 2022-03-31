@@ -17,7 +17,7 @@ const Trending = () => {
   return (
     <>
               <span className="text-xs flex space-x-1 items-center">
-                  <span className='opacity-30'>What's hot</span> <FireIcon className='h-4 text-red-500 opacity-100' /></span>
+                  <span className='opacity-30'>What&apos;s hot</span> <FireIcon className='h-4 text-red-500 opacity-100' /></span>
            <div className="flex justify-between items-end"> 
               <div className="w-full"> <h1 className="text-3xl font-bold">Trending</h1> </div>
               <NmBtn variant={"text"} label="More" />
