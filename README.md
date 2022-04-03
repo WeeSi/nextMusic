@@ -3,7 +3,7 @@
 
 ## Notation
   - [x] Fullhook
-  - [ ] Documentation personnelle, sur les notions dévcouvertes cette semaine
+  - [x] Documentation personnelle, sur les notions dévcouvertes cette semaine
   - [ ] Documentation du projet
   - [x] Organisation 'feature based' de la structure objet
   - [x] Au minimum un petit workflow git présenté brièvement
