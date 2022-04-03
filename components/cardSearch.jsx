@@ -5,6 +5,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import { CircularProgress, Link } from '@mui/material';
 
+// Card composant for result from search
 export default function CardSearch({data,loading}) {
     return (
         <Card className='absolute w-full' style={{maxHeight: '50vh', overflow: loading||'auto', display:''}}>

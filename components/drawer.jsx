@@ -1,19 +1,17 @@
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable @next/next/link-passhref */
 import React, {useState, useCallback } from 'react';
-import { styled, useTheme, alpha } from '@mui/material/styles';
+import { styled  } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import List from '@mui/material/List';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
 import Link from 'next/link'
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import ListItem from '@mui/material/ListItem';
 import { Context } from '../context';
 import { useRouter } from 'next/router';
-import { CollectionIcon, HomeIcon, HeartIcon, CogIcon, UserCircleIcon } from '@heroicons/react/solid';
+import { CollectionIcon, HomeIcon, HeartIcon } from '@heroicons/react/solid';
 import lightTheme from '../styles/theme/lightTheme';
 import darkTheme from '../styles/theme/darkTheme';
 import { ThemeProvider, CssBaseline } from "@mui/material";
@@ -27,8 +25,9 @@ import debounce from '../utility/debounce';
 import MenuUser from './menuUser/MenuUser';
 import UseIsLogged from '../custom-hook/IsLogged';
 
-const drawerWidth = 250;
 
+/*** Define style for input cearch ***/
+const drawerWidth = 250;
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -68,7 +67,9 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     },
   },
 }));
+/** _______________________ */
 
+// header option for spotify API 
 const options = {
 	method: 'GET',
 	headers: {
@@ -76,17 +77,22 @@ const options = {
 		'X-RapidAPI-Key': '8d62796f53msh915f625fd3e5709p1bbdc7jsnfed37800d073'
 	}
 };
+
+// Array of button navigation for menu
 const navigations =  [{name:'Home',icon:HomeIcon}, {name:'Bibliotheque',icon:CollectionIcon}, {name:'Favoris',icon:HeartIcon} ];
+
+// Drawer composant
 export default function MiniDrawer(props) {
+  // local data 
   const {state, dispatch} = React.useContext(Context);
   const router = useRouter();
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
   const [openSearch, setOpenSearch] = useState(false);
-  const logged = UseIsLogged();
   const active = router.asPath.replace('/','');
   
+  // Function call onChange on search input
   const spotifyAPI = (text) =>{
     setOpenSearch(true)
     setData(null);
@@ -94,6 +100,7 @@ export default function MiniDrawer(props) {
     getMusicAPI(text)
   }
 
+  /* API function */
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const getMusicAPI = useCallback(
     debounce (async (text) => {
@@ -117,6 +124,7 @@ export default function MiniDrawer(props) {
   ,[]);
 
   React.useEffect(() => {
+    // Close search result on key/click pressed
     window.addEventListener('keydown', (event) => {
       if (event.key === "Escape") {
         setOpenSearch(false)
@@ -127,12 +135,14 @@ export default function MiniDrawer(props) {
         setOpenSearch(false)
       }
     });
+    // Set dark mode from localStorage
     if(localStorage.darkMode=="true")
       document.getElementsByTagName('body')[0].classList.add('dark')
     else 
       document.getElementsByTagName('body')[0].classList.remove('dark')
     dispatch({type:"CHANGE_DARK", payload:localStorage.darkMode=="true"?true:false})
 
+    // Catch disconnect user for redirection
     if(localStorage.user){
       dispatch({type:"LOGGED_IN_USER", payload : JSON.parse(localStorage.user)});
 

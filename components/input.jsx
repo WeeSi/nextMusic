@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 
+// Input Composant
 export default function NmInput({
   type = "text",
   w = "full",

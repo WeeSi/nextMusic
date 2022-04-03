@@ -1,3 +1,4 @@
+// Button composant
 export default function NmBtn({
   action,
   svg = false,
