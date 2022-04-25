@@ -41,6 +41,7 @@ inputs:
   runTests:
     description: 'Whether or not to run tests'
     required: false
+  on: 'push'
   wait-on:
     description: 'Local server URL to wait for'
     required: false
