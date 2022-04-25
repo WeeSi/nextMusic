@@ -10,7 +10,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "cypress": "cypress open"
+    "cypress": "cypress open",
+    "rs": "standard-version"
   },
   "dependencies": {
     "@emotion/cache": "^11.7.1",
