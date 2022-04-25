@@ -1,4 +1,4 @@
-name: example-basic
+name: cypress-test
 on:
   push:
     branches:    
