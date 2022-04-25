@@ -3,22 +3,23 @@ on:
   push:
     branches:
       - 'main'
-  workflow_dispatch:
 
 jobs:
   test-and-deploy:
     name: Unit test
     runs-on: ubuntu-latest
     steps:
-      - run: npm run cy:ci
-
-      - name: Check out repository code
+      - name: Checkout
         uses: actions/checkout@v2
-
-      - name: run cypress tests
-        uses: cypress-io/github-action@v2
-        timeout-minutes: 10
-        continue-on-error: false
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14 # but you can do 12-16
+      - name: Cypress run
+        uses: cypress-io/github-action@v2.9.7
+        with:
+          build: npm run build
+          start: npm start
 
       - name: Checkout code
         uses: actions/checkout@v2
