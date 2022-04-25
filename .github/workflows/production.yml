@@ -20,7 +20,6 @@ jobs:
       - name: Deploy to Heroku
         uses: akhileshns/heroku-deploy@v3.12.12
         with:
-          args: deploy --dir=build --prod
           heroku_api_key: ${{ secrets.MY_SECRET_NAME }}
           heroku_app_name: 'next-music-isitech'
           heroku_email: 'francklucasehui@gmail.com'
