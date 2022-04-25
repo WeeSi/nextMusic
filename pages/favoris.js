@@ -3,12 +3,16 @@ import { HeartIcon, PlayIcon } from "@heroicons/react/solid";
 import React, { useContext } from "react";
 import { Context } from "../context";
 
+
+
 const Index = () => {
 
     const {state,dispatch} = useContext(Context);
 
     console.log(state);
 
+
+    //function to add sounds like in home to favorites
     const addToFav = (item) => {
         if(state.favoris.find((el) => el.id == item.id)){
             return dispatch({type:"REMOVE_FROM_FAV", payload:item.id});
@@ -19,13 +23,16 @@ const Index = () => {
 
     return (
         <div>
+          {/* Title */}
             <div className="w-full"> <h1 className="text-3xl font-bold">Favoris</h1> </div>
             <div className="mt-8 flex flex-col">
               <div className="-my-2 overflow-x-auto -mx-6">
                 <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
                   <div className="overflow-hidden">
+                    {/* table */}
                     <table className="min-w-full">
                       <thead className="">
+                      {/* table for the different columns */}
                         <tr>
                           <th scope="col" className="relative py-3 pl-4 pr-3 sm:pr-6">
                             <span className="">#</span>
@@ -61,10 +68,13 @@ const Index = () => {
                         </tr>
                       </thead>
                       <tbody >
+                        {/* state to favorite the music  */}
                         {state.favoris.map((song,index) => (
                           <tr className="song-list-table" key={song.id}>
+                            {/* music play button */}
                             <td className="whitespace-nowrap py-4 pl-4 pr-3 text-center m-auto text-sm font-medium ">
                               <>
+                              {/* onclick to play music */}
                                 <PlayIcon
                                   onClick={() => dispatch({type:"CHANGE_SONG", payload:song})}
                                 className="cursor-pointer h-5 mx-auto play-song-icon"
@@ -72,6 +82,7 @@ const Index = () => {
                                 <span className="play-song-incr-number">{index+1}</span>
                               </>
                             </td>
+                            {/* song description */}
                             <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium ">
                               <>
                                 {song.artist}
@@ -80,6 +91,7 @@ const Index = () => {
                             <td className="whitespace-nowrap px-3 py-4 text-sm ">{song.title}</td>
                             <td className="whitespace-nowrap px-3 py-4 text-sm ">{song.time}</td>
                             <td className="whitespace-nowrap px-3 py-4 text-sm ">{song.album}</td>
+                            {/* button i like color trasition */}
                             <td className="whitespace-nowrap px-3 py-4 text-sm ">
                                 <HeartIcon onClick={() => addToFav(song)} style={{transition:"all ease 0.3s"}} 
                                 className={`cursor-pointer text-red-500 hover:text-white h-5`}

@@ -5,6 +5,9 @@
 // import song6 from "../../music/Free_Agency_NBA_2021_-_statut_quo87emr.mp3";
 // import song7 from "../../music/FROM THE ASHES WE RISE AGAIN by Berend Salverda  Music That Makes Everything Epic.mp3"
 
+
+//table to export and map sounds in library
+
 export const Songs = [
   {
     id: 1,
