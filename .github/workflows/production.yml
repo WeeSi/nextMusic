@@ -10,7 +10,7 @@ jobs:
     name: Unit test
     runs-on: ubuntu-latest
     steps:
-      - run: npm run dev
+      - run: npm run cy:ci
 
       - name: Check out repository code
         uses: actions/checkout@v2
