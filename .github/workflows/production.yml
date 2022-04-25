@@ -16,7 +16,7 @@ jobs:
       - name: run cypress tests
         uses: cypress-io/github-action@v2
         timeout-minutes: 10
-      continue-on-error: false
+        continue-on-error: false
 
       - name: Checkout code
         uses: actions/checkout@v2
