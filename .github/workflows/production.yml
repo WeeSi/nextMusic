@@ -1,14 +1,25 @@
-name: Production workflow
-
-on:
+name: production
+on: 
   push:
     branches:
-      - main
+      - 'main'
+  workflow_dispatch:
 
 jobs:
-  deploy:
+  checkout-and-test:
     runs-on: ubuntu-latest
     steps:
+      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+      
+      - name: Check out repository code
+        uses: actions/checkout@v2
+
+      - name: run cypress tests
+        uses: cypress-io/github-action@v2
+        timeout-minutes: 10
+
+      continue-on-error: false
+
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Use Node.js 17.x
