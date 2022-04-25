@@ -9,6 +9,7 @@ import { Context, Provider } from "../context";
 
 const clientSideEmotionCache = createEmotionCache();
 
+// Test log
 
 const MyApp = (props) => {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
