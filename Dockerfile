@@ -9,6 +9,7 @@ WORKDIR /usr/app
 # Copying this first prevents re-running npm install on every code change.
 COPY . .
 
+RUN npm install
 # Install production dependencies.
 # If you add a package-lock.json, speed your build by switching to 'npm ci'.
 RUN npm ci --only=production
