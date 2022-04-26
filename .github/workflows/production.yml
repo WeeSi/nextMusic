@@ -26,7 +26,6 @@ jobs:
         with:
           build: npm run build
           start: npm start
-
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Use Node.js 17.x
@@ -34,6 +33,7 @@ jobs:
         with:
           node-version: 17.x
 
+      - name: Checkout google cloud
     # This step is where our service account will be authenticated
       - uses: google-github-actions/setup-gcloud@v0.2.0
         with:
