@@ -8,7 +8,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start -p $PORT",
+    "start": "next start",
     "lint": "next lint",
     "cypress": "cypress open",
     "cy": "start-server-and-test start:ci http://localhost:3000/ cy:run",
