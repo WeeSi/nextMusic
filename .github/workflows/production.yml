@@ -1,14 +1,26 @@
-name: Production workflow
-
-on:
+name: production
+on: 
   push:
     branches:
-      - main
+      - 'main'
 
 jobs:
-  deploy:
+  test-and-deploy:
+    name: Unit test
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14 # but you can do 12-16
+      - name: Cypress run
+        uses: cypress-io/github-action@v2.9.7
+        with:
+          build: npm run build
+          start: npm start
+
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Use Node.js 17.x
@@ -20,7 +32,6 @@ jobs:
       - name: Deploy to Heroku
         uses: akhileshns/heroku-deploy@v3.12.12
         with:
-          args: deploy --dir=build --prod
           heroku_api_key: ${{ secrets.MY_SECRET_NAME }}
           heroku_app_name: 'next-music-isitech'
           heroku_email: 'francklucasehui@gmail.com'
