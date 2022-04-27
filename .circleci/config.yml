@@ -8,10 +8,10 @@ jobs:
       - node/install-packages:
           pkg-manager: npm
       - run:
-          command: npm build
+          command: npm run build
           name: Build app
       - run:
-          command: npm start
+          command: npm run start
           background: true
           name: start app
       - run:
