@@ -1,6 +1,6 @@
 jobs:
   # Build the docker image and run tests.
-  test:
+  build_start:
     docker:
       - image: cimg/node:17.2.0
     steps:
@@ -14,9 +14,6 @@ jobs:
           command: npm run start
           background: true
           name: start app
-      - run:
-          command: npm run cypress
-          name: run cypress
 
   # Build the docker image and deploy it to Heroku.
   build_and_deploy:
@@ -48,8 +45,9 @@ version: 2.1
 workflows:
   heroku_deploy:
     jobs:
-      - test
+      - build_start
+      - cypress/run
       - build_and_deploy:
           requires:
             # Deploy after testing.
-            - test
+            - cypress/run
