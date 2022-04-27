@@ -32,4 +32,6 @@ workflows:
       - cypress/run:
           build: "npm run build"
           start: "npm run dev"
-      - build_and_deploy
+      - build_and_deploy:
+          requires:
+            - cypress/run
