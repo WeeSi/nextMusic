@@ -12,10 +12,6 @@ jobs:
       - checkout
       - run: docker build -t webapp .
 
-      # Run tests.
-      - run:
-          command: docker run webapp python3 tests.py
-
   # Build the docker image and deploy it to Heroku.
   build_and_deploy:
     docker:
