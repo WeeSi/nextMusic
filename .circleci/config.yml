@@ -1,25 +1,25 @@
 jobs:
   # Build the docker image and run tests.
-  # test:
-  #   docker:
-  #     - image: cypress/base:10
-  #   steps:
-  #     - checkout
-  #     - restore_cache:
-  #         keys:
-  #           - cache-{{ checksum "package.json" }}
-  #     - run:
-  #         name: Install dependencies
-  #         command: npm i
-  #     - save_cache:
-  #         paths:
-  #           - ~/.npm
-  #           - ~/.cache
-  #         key: cache-{{ checksum "package.json" }}
-  #     - run:
-  #         command: npm start
-  #         background: true
-  #     - run: npx cypress run
+  test:
+    docker:
+      - image: cimg/node:17.2.0
+    steps:
+      - checkout
+      - node/install-packages:
+          pkg-manager: npm
+      - run:
+          command: npm test
+          name: Run tests
+      - run:
+          command: npm build
+          name: Build app
+      - run:
+          command: npm start
+          background: true
+          name: start app
+      - run:
+          command: npm run cypress
+          name: run cypress
 
   # Build the docker image and deploy it to Heroku.
   build_and_deploy:
@@ -46,12 +46,13 @@ orbs:
   # For using Heroku CLI commandｓ.
   heroku: circleci/heroku@1.2.6
   cypress: cypress-io/cypress@1.29.0
+  node: circleci/node@4.7.0
 version: 2.1
 workflows:
   heroku_deploy:
     jobs:
-      - cypress/run
+      - test
       - build_and_deploy:
           requires:
             # Deploy after testing.
-            - cypress/run
+            - test
