@@ -1,16 +1,27 @@
 jobs:
   # Build the docker image and run tests.
-  build_and_test:
+  test:
     docker:
-      - image: cimg/base:2021.07
+      - image: cypress/base:10
     steps:
-      # For using docker commands.
-      - setup_remote_docker:
-          version: 19.03.13
-
-      # Build the docker image
       - checkout
-      - run: docker build -t webapp .
+      - restore_cache:
+          keys:
+            - cache-{{ checksum "package.json" }}
+      - run:
+          name: Install dependencies
+          command: npm ci
+      - run: npm run cy:verify
+      - save_cache:
+          paths:
+            - ~/.npm
+            - ~/.cache
+          key: cache-{{ checksum "package.json" }}
+      
+      - run:
+          command: npm start
+          background: true
+      - run: npm run e2e:record
 
   # Build the docker image and deploy it to Heroku.
   build_and_deploy:
@@ -41,8 +52,8 @@ version: 2.1
 workflows:
   heroku_deploy:
     jobs:
-      - build_and_test
+      - test
       - build_and_deploy:
           requires:
             # Deploy after testing.
-            - build_and_test
+            - test
