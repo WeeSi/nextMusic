@@ -10,18 +10,16 @@ jobs:
             - cache-{{ checksum "package.json" }}
       - run:
           name: Install dependencies
-          command: npm ci
-      - run: npx cypress run
+          command: npm i
       - save_cache:
           paths:
             - ~/.npm
             - ~/.cache
           key: cache-{{ checksum "package.json" }}
-      
       - run:
           command: npm start
           background: true
-      - run: npm run e2e:record
+      - run: npx cypress run
 
   # Build the docker image and deploy it to Heroku.
   build_and_deploy:
