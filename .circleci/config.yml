@@ -47,7 +47,4 @@ workflows:
     jobs:
       - build_start
       - cypress/run
-      - build_and_deploy:
-          requires:
-            # Deploy after testing.
-            - cypress/run
+      - build_and_deploy
